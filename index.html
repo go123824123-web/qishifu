@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<title>启师傅 - 独立开发者 & AI探索者</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f4f1ec; --surface: #fff; --surface2: #faf8f4;
+  --text: #2c1e16; --text2: #7a6a50; --text3: #a89880;
+  --border: #e0dcd4; --accent: #5a3e1b; --accent-light: #f5f0e6;
+  --primary: #d4a574; --primary-dark: #b8864e;
+  --radius: 14px; --shadow: 0 2px 12px rgba(90,62,27,0.07);
+  --font-serif: 'Noto Serif SC', Georgia, serif;
+  --font-sans: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+}
+[data-theme="dark"] {
+  --bg: #121010; --surface: #1e1a18; --surface2: #252120;
+  --text: #e8e0d8; --text2: #a09080; --text3: #6a5e52;
+  --border: #352e28; --accent: #d4a574; --accent-light: #2a2220;
+  --primary: #d4a574; --primary-dark: #e8b888;
+  --shadow: 0 2px 12px rgba(0,0,0,0.25);
+}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-sans); background: var(--bg);
+  color: var(--text); line-height: 1.7; min-height: 100vh;
+}
+a { color: inherit; text-decoration: none; }
+
+/* Theme Toggle */
+.theme-toggle {
+  position: fixed; top: 16px; right: 16px; z-index: 100;
+}
+.theme-btn {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+  padding: 6px 14px; font-size: 13px; cursor: pointer; color: var(--text2);
+  transition: all 0.2s; display: flex; align-items: center; gap: 5px;
+  box-shadow: var(--shadow);
+}
+.theme-btn:hover { border-color: var(--primary); color: var(--accent); }
+
+/* Container */
+.app { max-width: 800px; margin: 0 auto; padding: 40px 24px 80px; }
+
+/* Hero */
+.hero {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); box-shadow: var(--shadow);
+  padding: 36px 32px; margin-bottom: 28px;
+  display: flex; align-items: center; gap: 28px;
+}
+.hero-avatar {
+  width: 150px; height: 150px; border-radius: 50%;
+  object-fit: cover; border: none;
+  flex-shrink: 0; box-shadow: 0 6px 24px rgba(0,0,0,0.12);
+}
+.hero-info { flex: 1; min-width: 0; }
+.hero-name-row { display: flex; align-items: center; gap: 10px; margin-bottom: 4px; }
+.hero-name {
+  font-family: var(--font-serif); font-size: 28px; font-weight: 900;
+  color: var(--accent); letter-spacing: 1px;
+}
+.hero-mascot { width: 32px; height: 32px; }
+.hero-tagline {
+  font-size: 14px; color: var(--text2); margin-bottom: 12px;
+  font-weight: 400;
+}
+.hero-bio {
+  font-size: 13px; color: var(--text2); line-height: 1.8;
+  margin-bottom: 16px;
+}
+.hero-links { display: flex; flex-wrap: wrap; gap: 8px; }
+.hero-link {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 5px 14px; border-radius: 20px; font-size: 12px; font-weight: 500;
+  background: var(--accent-light); color: var(--accent);
+  border: 1px solid var(--border);
+  transition: all 0.2s;
+}
+.hero-link:hover {
+  background: var(--primary); color: #fff;
+  border-color: var(--primary); transform: translateY(-1px);
+}
+.hero-link svg { width: 14px; height: 14px; }
+
+@media (max-width: 600px) {
+  .hero { flex-direction: column; text-align: center; padding: 28px 20px; }
+  .hero-name-row { justify-content: center; }
+  .hero-links { justify-content: center; }
+}
+
+/* Section */
+.section { margin-bottom: 28px; }
+.section-header {
+  display: flex; align-items: center; gap: 10px;
+  padding-bottom: 10px; margin-bottom: 16px;
+  border-bottom: 2px solid var(--primary);
+}
+.section-icon { font-size: 24px; }
+.section-title {
+  font-family: var(--font-serif); font-size: 20px; font-weight: 900;
+  color: var(--accent); letter-spacing: 0.5px;
+}
+
+/* Product Cards */
+.products-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+@media (max-width: 600px) { .products-grid { grid-template-columns: 1fr; } }
+.product-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); box-shadow: var(--shadow);
+  overflow: hidden; transition: all 0.25s;
+  display: flex; flex-direction: column;
+}
+.product-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(90,62,27,0.12);
+}
+.product-header {
+  padding: 18px 18px 14px; display: flex; align-items: center; gap: 12px;
+  border-bottom: 1px solid var(--border);
+}
+.product-icon {
+  width: 48px; height: 48px; border-radius: 12px;
+  flex-shrink: 0; object-fit: cover;
+}
+.product-name {
+  font-family: var(--font-serif); font-size: 16px; font-weight: 700;
+  color: var(--accent);
+}
+.product-subtitle { font-size: 11px; color: var(--text3); margin-top: 2px; }
+.product-body {
+  padding: 14px 18px; flex: 1;
+  font-size: 13px; color: var(--text2); line-height: 1.7;
+}
+.product-screenshots {
+  display: flex; gap: 8px; padding: 0 18px 14px; overflow: hidden;
+}
+.product-screenshots img {
+  width: calc(50% - 4px); border-radius: 8px;
+  border: 1px solid var(--border); object-fit: cover;
+}
+.product-footer {
+  padding: 10px 18px 14px;
+  display: flex; flex-wrap: wrap; gap: 6px;
+}
+.product-tag {
+  font-size: 10px; padding: 2px 8px; border-radius: 10px;
+  font-weight: 600;
+}
+.tag-appstore { background: #e8f5e9; color: #2e7d32; }
+.tag-featured { background: #fff8e1; color: #f57f17; }
+.tag-android { background: #e3f2fd; color: #1565c0; }
+[data-theme="dark"] .tag-appstore { background: #1b3a1e; color: #66bb6a; }
+[data-theme="dark"] .tag-featured { background: #3a2e00; color: #ffd54f; }
+[data-theme="dark"] .tag-android { background: #0d2744; color: #64b5f6; }
+
+/* Podcast Section */
+.podcast-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); box-shadow: var(--shadow);
+  overflow: hidden;
+}
+.podcast-banner {
+  padding: 24px 24px 20px;
+  background: linear-gradient(135deg, var(--accent) 0%, #7a5530 100%);
+  display: flex; align-items: center; gap: 18px;
+}
+[data-theme="dark"] .podcast-banner {
+  background: linear-gradient(135deg, #5a3e1b 0%, #4a3218 100%);
+}
+.podcast-cover {
+  width: 80px; height: 80px; border-radius: 14px;
+  flex-shrink: 0; object-fit: cover;
+}
+.podcast-info { flex: 1; }
+.podcast-title {
+  font-family: var(--font-serif); font-size: 20px; font-weight: 900;
+  color: #fff; margin-bottom: 4px;
+}
+[data-theme="dark"] .podcast-title { color: #f5dfc5; }
+.podcast-desc { font-size: 13px; color: rgba(255,255,255,0.8); line-height: 1.6; }
+[data-theme="dark"] .podcast-desc { color: rgba(255,255,255,0.65); }
+.podcast-stats {
+  display: flex; gap: 20px; margin-top: 8px;
+}
+.podcast-stat {
+  font-size: 11px; color: rgba(255,255,255,0.7);
+  display: flex; align-items: center; gap: 4px;
+}
+.podcast-body { padding: 0; }
+.podcast-episodes {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;
+  padding: 16px 20px;
+}
+@media (max-width: 600px) { .podcast-episodes { grid-template-columns: repeat(2, 1fr); } }
+.ep-card {
+  display: flex; flex-direction: column;
+  border-radius: 10px; overflow: hidden;
+  border: 1px solid var(--border); background: var(--surface);
+  transition: all 0.25s; text-decoration: none; color: inherit;
+}
+.ep-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(90,62,27,0.1);
+}
+.ep-card img {
+  width: 100%; aspect-ratio: 1; object-fit: cover;
+}
+.ep-card-title {
+  padding: 10px; font-size: 11px; font-weight: 500;
+  color: var(--text); line-height: 1.5; flex: 1;
+  display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
+}
+.ep-card-more {
+  display: flex; align-items: center; justify-content: center;
+  background: var(--surface2); border: 1px solid var(--border);
+  border-radius: 10px; font-size: 13px; font-weight: 600;
+  color: var(--primary); transition: all 0.25s; text-decoration: none;
+  min-height: 100%;
+}
+.ep-card-more:hover {
+  background: var(--accent-light); color: var(--accent);
+  transform: translateY(-2px);
+}
+.podcast-links {
+  padding: 14px 20px; background: var(--surface2);
+  border-top: 1px solid var(--border);
+  display: flex; flex-wrap: wrap; gap: 8px;
+}
+.podcast-link-btn {
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 6px 14px; border-radius: 8px; font-size: 12px; font-weight: 500;
+  background: var(--surface); border: 1px solid var(--border);
+  color: var(--text2); transition: all 0.2s;
+}
+.podcast-link-btn:hover {
+  border-color: var(--primary); color: var(--accent);
+  background: var(--accent-light);
+}
+
+/* Events Section */
+.events-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); box-shadow: var(--shadow);
+  overflow: hidden;
+}
+.events-banner {
+  padding: 24px 24px 20px;
+  background: linear-gradient(135deg, #4d7a32 0%, #5a8a3d 100%);
+  display: flex; align-items: center; gap: 18px;
+}
+[data-theme="dark"] .events-banner {
+  background: linear-gradient(135deg, #2d4a1e 0%, #3a5e28 100%);
+}
+.events-logo {
+  width: 80px; height: 80px; border-radius: 14px;
+  object-fit: contain; background: rgba(255,255,255,0.15);
+  padding: 8px; backdrop-filter: blur(8px);
+}
+.events-banner .events-info { flex: 1; }
+.events-banner .events-title {
+  font-family: var(--font-serif); font-size: 20px; font-weight: 900;
+  color: #fff; margin-bottom: 4px;
+}
+[data-theme="dark"] .events-banner .events-title { color: #d4e8c4; }
+.events-banner .events-subtitle {
+  font-size: 13px; color: rgba(255,255,255,0.8);
+}
+[data-theme="dark"] .events-banner .events-subtitle { color: rgba(255,255,255,0.6); }
+.events-qrcode {
+  width: 80px; height: 80px; border-radius: 10px;
+  object-fit: cover; flex-shrink: 0;
+  border: 2px solid rgba(255,255,255,0.3);
+}
+.events-photos {
+  display: grid; grid-template-columns: 2fr 3fr; gap: 10px;
+  margin-top: 14px;
+}
+.events-photos img {
+  width: 100%; border-radius: 10px;
+  border: 1px solid var(--border);
+}
+.events-photos img:first-child {
+  grid-column: 1 / -1;
+  object-fit: cover;
+}
+.events-photos img:nth-child(2) {
+  object-fit: contain; align-self: center;
+}
+.events-photos img:nth-child(3) {
+  height: 100%; object-fit: cover;
+}
+@media (max-width: 600px) {
+  .events-photos { grid-template-columns: 3fr 2fr; }
+}
+.events-header {
+  padding: 18px 20px 14px;
+  display: flex; align-items: center; gap: 14px;
+  border-bottom: 1px solid var(--border);
+}
+.events-info { flex: 1; }
+.events-title {
+  font-family: var(--font-serif); font-size: 17px; font-weight: 700;
+  color: var(--accent);
+}
+.events-subtitle { font-size: 12px; color: var(--text3); margin-top: 2px; }
+.events-body { padding: 16px 20px; }
+.events-desc {
+  font-size: 13px; color: var(--text2); line-height: 1.8;
+  margin-bottom: 14px;
+}
+.events-highlights {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 0;
+  border: 1px solid var(--border); border-radius: 10px; overflow: hidden;
+}
+@media (max-width: 500px) { .events-highlights { grid-template-columns: repeat(2, 1fr); } }
+.event-item {
+  padding: 14px 10px; text-align: center;
+  border-right: 1px solid var(--border); border-bottom: 1px solid var(--border);
+  transition: background 0.15s;
+}
+.event-item:nth-child(3n) { border-right: none; }
+.event-item:nth-last-child(-n+3) { border-bottom: none; }
+@media (max-width: 500px) {
+  .event-item:nth-child(3n) { border-right: 1px solid var(--border); }
+  .event-item:nth-child(2n) { border-right: none; }
+  .event-item:nth-last-child(-n+2) { border-bottom: none; }
+}
+.event-item:hover { background: var(--accent-light); }
+.event-icon { font-size: 22px; margin-bottom: 4px; }
+.event-name { font-size: 12px; font-weight: 600; color: var(--accent); }
+.event-desc { font-size: 10px; color: var(--text3); margin-top: 2px; }
+.events-cta {
+  padding: 14px 20px; background: var(--surface2);
+  border-top: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+}
+.cta-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 8px 20px; border-radius: 20px; font-size: 13px; font-weight: 600;
+  background: linear-gradient(135deg, var(--accent) 0%, #7a5530 100%);
+  color: #fff; transition: all 0.25s;
+  border: none; cursor: pointer;
+}
+.cta-btn:hover { transform: translateY(-1px); box-shadow: 0 4px 14px rgba(90,62,27,0.25); }
+
+/* Footer */
+.footer {
+  text-align: center; padding: 32px 0 0;
+  font-size: 12px; color: var(--text3);
+}
+.footer-line { margin-bottom: 4px; }
+.footer a { color: var(--primary); }
+.footer a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+<div class="theme-toggle">
+  <button class="theme-btn" onclick="toggleTheme()">
+    <span id="theme-icon">🌙</span>
+    <span id="theme-text">暗色</span>
+  </button>
+</div>
+
+<div class="app">
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <img src="images/qishifu.jpg" alt="启师傅" class="hero-avatar">
+    <div class="hero-info">
+      <div class="hero-name-row">
+        <h1 class="hero-name">启师傅</h1>
+      </div>
+      <p class="hero-tagline">独立开发者</p>
+      <p class="hero-bio">
+        热爱用 AI 创造产品的独立开发者，Vibe Coding 实践者。居住在杭州良渚文化村，通过播客、线下活动和产品，探索 AI 时代的创造与生活方式。
+      </p>
+      <div class="hero-links">
+        <a href="https://m.okjike.com/users/f305e5ee-961c-4eee-82ef-2340ee72aeea" target="_blank" class="hero-link">
+          <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 12l3 3 5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          即刻
+        </a>
+        <a href="https://www.xiaohongshu.com/user/profile/5d8b3ada0000000001003f0e" target="_blank" class="hero-link">
+          <svg viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="18" height="18" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7 12h10M12 7v10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          小红书
+        </a>
+        <a href="https://x.com/Chris_55237" target="_blank" class="hero-link">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          X / Twitter
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Works Section -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-icon">🛠</span>
+      <h2 class="section-title">App作品</h2>
+    </div>
+    <div class="products-grid">
+      <!-- LEMO FM -->
+      <a href="https://apps.apple.com/us/app/lemo-fm-relax-sleep-sound/id6444756219" target="_blank" class="product-card">
+        <div class="product-header">
+          <img class="product-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/64/43/2a/64432ac2-dd65-b9d0-a35d-c9a0230c9629/AppIcon-0-0-1x_U007ephone-0-1-0-85-220.png/512x512bb.jpg" alt="LEMO FM">
+          <div>
+            <div class="product-name">LEMO FM</div>
+            <div class="product-subtitle">Relax & Sleep Sound</div>
+          </div>
+        </div>
+        <div class="product-body">
+          拟物化白噪音播放器，复古收音机设计。播放高清自然声音，帮助专注、放松或入眠，呼吸灯冥想辅助。
+        </div>
+        <div class="product-screenshots">
+          <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple116/v4/f7/06/fc/f706fce8-5a94-d5ea-ca56-5bf02c890cf1/d36b8b67-851e-4b5c-bc99-7da3b6d6cb6e__U82f1-_U5956_U9879.jpg/392x696bb.jpg" alt="LEMO FM screenshot 1">
+          <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/07/e7/23/07e72313-bd00-dc17-0f7c-1e573dcd9b96/e90bd5f5-2a6d-4a40-81c3-a326f3bfc836__U753b_U677f_U5907_U4efd_6.jpg/392x696bb.jpg" alt="LEMO FM screenshot 2">
+        </div>
+        <div class="product-footer">
+          <span class="product-tag tag-featured">Editor's Choice</span>
+          <span class="product-tag tag-appstore">iOS</span>
+          <span class="product-tag tag-android">Android</span>
+        </div>
+      </a>
+
+      <!-- 了然清单 -->
+      <a href="https://apps.apple.com/cn/app/%E4%BA%86%E7%84%B6%E6%B8%85%E5%8D%95/id6474304009" target="_blank" class="product-card">
+        <div class="product-header">
+          <img class="product-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/6a/d5/52/6ad55288-bb20-a077-19b2-24fc7c20f2be/AppIcon-0-0-1x_U007ephone-0-1-0-85-220.png/512x512bb.jpg" alt="了然清单">
+          <div>
+            <div class="product-name">了然清单</div>
+            <div class="product-subtitle">Weekit - ADHD Friendly To-Do</div>
+          </div>
+        </div>
+        <div class="product-body">
+          专为 P 人和 ADHD 设计的极简待办清单。气泡式任务视图，一眼纵览整周日程，智能分类与 emoji 标签。
+        </div>
+        <div class="product-screenshots">
+          <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/7c/5c/1a/7c5c1a42-1a28-235d-11aa-52dc091b8103/26fd4141-52a5-44df-9d0a-41704a9d43b2_Group_3461.png/392x696bb.png" alt="了然清单 screenshot 1">
+          <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/79/da/b0/79dab080-89d3-b378-2bc4-f12f43f7a271/792615c2-6e6d-44f0-b623-da0a0f698928_Group_3460.png/392x696bb.png" alt="了然清单 screenshot 2">
+        </div>
+        <div class="product-footer">
+          <span class="product-tag tag-appstore">iOS</span>
+          <span class="product-tag tag-appstore">iPadOS</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- Podcast Section -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-icon">🎙</span>
+      <h2 class="section-title">播客</h2>
+    </div>
+    <div class="podcast-card">
+      <div class="podcast-banner">
+        <img class="podcast-cover" src="https://image.xyzcdn.net/FpSyliU-oVhsoaSpZ_lksqexAJVl.png" alt="启师傅AI客厅">
+        <div class="podcast-info" style="flex:1;">
+          <div class="podcast-title">《启师傅AI客厅》播客</div>
+          <div class="podcast-desc">AI 时代的创造和生活指南</div>
+        </div>
+        <img src="images/podcast_qrcode.png" alt="小宇宙二维码" class="events-qrcode">
+      </div>
+      <div class="podcast-body">
+        <div class="podcast-episodes">
+          <a href="https://www.xiaoyuzhoufm.com/episode/6857bc4c4abe6e29cb5ee8d5" target="_blank" class="ep-card">
+            <img src="images/ep15.png" alt="No.15">
+            <div class="ep-card-title">No.15 在良渚，用AI+内容，解锁脉冲型创造的猎人生活</div>
+          </a>
+          <a href="https://www.xiaoyuzhoufm.com/episode/683d305a31215eb506deacc4" target="_blank" class="ep-card">
+            <img src="images/ep14.png" alt="No.14">
+            <div class="ep-card-title">No.14 2人3个月从零开始，如何打造"第二好"的AI/LLM App？</div>
+          </a>
+          <a href="https://www.xiaoyuzhoufm.com/episode/68300d0efcbc2e206b58a1db" target="_blank" class="ep-card">
+            <img src="images/ep13.png" alt="No.13">
+            <div class="ep-card-title">No.13 后大厂时代AI创业怎么做？离职创业1年深度复盘</div>
+          </a>
+          <a href="https://www.xiaoyuzhoufm.com/podcast/66018db7875ad135bddd135a" target="_blank" class="ep-card-more">
+            查看更多 ›
+          </a>
+        </div>
+      </div>
+      <div class="podcast-links">
+        <a href="https://www.xiaoyuzhoufm.com/podcast/66018db7875ad135bddd135a" target="_blank" class="podcast-link-btn">🟡 小宇宙</a>
+        <a href="https://podcasts.apple.com/sg/podcast/%E5%90%AF%E5%B8%88%E5%82%85ai%E5%AE%A2%E5%8E%85/id1795748250" target="_blank" class="podcast-link-btn">🍎 Apple Podcasts</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Events Section -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-icon">🎪</span>
+      <h2 class="section-title">线下活动</h2>
+    </div>
+    <div class="events-card">
+      <div class="events-banner">
+        <img src="images/demodaylogo1.png" alt="Demo Day" class="events-logo">
+        <div class="events-info">
+          <div class="events-title">启师傅AI客厅 Demo Day</div>
+          <div class="events-subtitle">独立开发者与 AI 创业者的线下聚会</div>
+        </div>
+        <img src="images/qishifu_qrcode.jpg" alt="公众号二维码" class="events-qrcode">
+      </div>
+      <div class="events-body">
+        <p class="events-desc">
+          定期举办的线下科技社区活动。邀请独立开发者、AI 创业者现场演示新项目，分享创造故事。圆桌对话、产品首发、社区交流，连接创造者与同行者。
+        </p>
+        <div class="events-photos">
+          <img src="images/event_collage.png" alt="历期活动集锦">
+          <img src="images/event3.jpg" alt="活动现场精彩瞬间">
+          <img src="images/event1.jpg" alt="Demo Day 大合影">
+        </div>
+      </div>
+      <div class="events-cta">
+        <span style="font-size:13px; color:var(--text2);">关注公众号「启师傅AI客厅」获取活动通知</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p class="footer-line">
+      启师傅 · 独立开发者 · 良渚文化村
+    </p>
+    <p class="footer-line" style="margin-top:6px;">
+      <a href="https://m.okjike.com/users/f305e5ee-961c-4eee-82ef-2340ee72aeea" target="_blank">即刻</a>
+       ·
+      <a href="https://www.xiaohongshu.com/user/profile/5d8b3ada0000000001003f0e" target="_blank">小红书</a>
+       ·
+      <a href="https://www.xiaoyuzhoufm.com/podcast/66018db7875ad135bddd135a" target="_blank">播客</a>
+       ·
+      <a href="https://x.com/Chris_55237" target="_blank">X</a>
+    </p>
+  </footer>
+
+</div>
+
+<script>
+function toggleTheme() {
+  const html = document.documentElement;
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? '' : 'dark');
+  document.getElementById('theme-icon').textContent = isDark ? '🌙' : '☀️';
+  document.getElementById('theme-text').textContent = isDark ? '暗色' : '亮色';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function() {
+  const saved = localStorage.getItem('theme');
+  if (saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    document.documentElement.setAttribute('data-theme', 'dark');
+    document.getElementById('theme-icon').textContent = '☀️';
+    document.getElementById('theme-text').textContent = '亮色';
+  }
+})();
+</script>
+</body>
+</html>
