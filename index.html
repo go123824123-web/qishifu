@@ -1052,9 +1052,9 @@ function _getPosts(callback) {
 
 function sendToSecondMe() {
   var msg = document.getElementById('visitorMsg').value.trim();
-  var url = 'https://second-me.cn/qishifu';
+  var url = 'https://beta.second-me.cn/qishifu/avatar/fb76b4adb945';
   if (msg) {
-    url += '?q=' + encodeURIComponent(msg);
+    url += '?query=' + encodeURIComponent(msg);
   }
   window.open(url, '_blank');
 }
@@ -1074,7 +1074,7 @@ function toggleChat() {
     fab.classList.add('active');
     if (badge) badge.style.display = 'none';
     if (!chatLoaded) {
-      document.getElementById('chatIframe').src = 'https://second-me.cn/qishifu';
+      document.getElementById('chatIframe').src = 'https://beta.second-me.cn/qishifu/avatar/fb76b4adb945';
       chatLoaded = true;
     }
   } else {
