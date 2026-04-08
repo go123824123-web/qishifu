@@ -690,7 +690,7 @@ a { color: inherit; text-decoration: none; }
       </div>
       <span class="visitor-label">你</span>
     </div>
-    <div style="flex:1; min-width:0;">
+    <div style="flex:1; min-width:0; display:flex; flex-direction:column; align-items:flex-end;">
       <div class="visitor-bubble">
         <input type="text" class="visitor-input" id="visitorMsg" placeholder="跟启师傅的 AI 分身说点什么..." maxlength="500" onkeydown="if(event.key==='Enter')sendToSecondMe()">
         <button class="visitor-send" onclick="sendToSecondMe()">
