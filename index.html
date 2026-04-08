@@ -205,12 +205,95 @@ a { color: inherit; text-decoration: none; }
   margin-top: 6px; max-width: 420px;
 }
 
+/* Floating Chat Widget */
+.chat-fab {
+  position: fixed; bottom: 28px; right: 28px; z-index: 999;
+  width: 60px; height: 60px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent) 0%, #7a5530 100%);
+  border: none; cursor: pointer;
+  box-shadow: 0 4px 20px rgba(90,62,27,0.35);
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.3s;
+}
+.chat-fab:hover {
+  transform: scale(1.08);
+  box-shadow: 0 6px 28px rgba(90,62,27,0.45);
+}
+.chat-fab svg { transition: transform 0.3s; }
+.chat-fab.active svg { transform: rotate(90deg); }
+.chat-fab-badge {
+  position: absolute; top: -2px; right: -2px;
+  width: 18px; height: 18px; border-radius: 50%;
+  background: #e74c3c; border: 2px solid var(--bg);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 10px; color: #fff; font-weight: 700;
+}
+.chat-window {
+  position: fixed; bottom: 100px; right: 28px; z-index: 998;
+  width: 390px; height: 680px;
+  border-radius: 20px; overflow: hidden;
+  box-shadow: 0 12px 48px rgba(0,0,0,0.2);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  display: none; flex-direction: column;
+  opacity: 0; transform: translateY(20px) scale(0.95);
+  transition: opacity 0.3s, transform 0.3s;
+}
+.chat-window.open {
+  display: flex;
+  opacity: 1; transform: translateY(0) scale(1);
+}
+.chat-window-header {
+  padding: 14px 18px;
+  background: linear-gradient(135deg, var(--accent) 0%, #7a5530 100%);
+  display: flex; align-items: center; gap: 12px;
+  flex-shrink: 0;
+}
+.chat-window-avatar {
+  width: 40px; height: 40px; border-radius: 50%;
+  object-fit: cover; border: 2px solid rgba(255,255,255,0.3);
+}
+.chat-window-info { flex: 1; }
+.chat-window-name {
+  font-size: 15px; font-weight: 700; color: #fff;
+}
+.chat-window-status {
+  font-size: 11px; color: rgba(255,255,255,0.7);
+  display: flex; align-items: center; gap: 4px;
+}
+.chat-window-status::before {
+  content: ''; width: 6px; height: 6px; border-radius: 50%;
+  background: #44FFBB; display: inline-block;
+}
+.chat-window-close {
+  background: none; border: none; cursor: pointer;
+  color: rgba(255,255,255,0.7); padding: 4px;
+  border-radius: 8px; transition: all 0.2s;
+  display: flex; align-items: center; justify-content: center;
+}
+.chat-window-close:hover { color: #fff; background: rgba(255,255,255,0.15); }
+.chat-window-body {
+  flex: 1; border: none; width: 100%; background: #fff;
+}
+.chat-window-footer {
+  padding: 10px 16px; background: var(--surface2);
+  border-top: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center; gap: 4px;
+  font-size: 10px; color: var(--text3);
+}
+.chat-window-footer a { color: var(--primary); text-decoration: none; }
+
 @media (max-width: 600px) {
   .hero { padding: 16px 0; }
   .hero-bubble { border-radius: 14px; padding: 14px 16px; }
   .events-qrcode { display: none; }
   .podcast-banner .events-qrcode { display: none; }
   .visitor-hint { padding-right: 0; text-align: center; }
+  .chat-window {
+    width: calc(100vw - 20px); height: calc(100vh - 140px);
+    right: 10px; bottom: 96px;
+    border-radius: 16px;
+  }
 }
 
 /* Section */
@@ -923,6 +1006,28 @@ a { color: inherit; text-decoration: none; }
 
 </div>
 
+<!-- Floating Chat Widget -->
+<button class="chat-fab" id="chatFab" onclick="toggleChat()" aria-label="Chat with AI">
+  <span class="chat-fab-badge">1</span>
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+</button>
+<div class="chat-window" id="chatWindow">
+  <div class="chat-window-header">
+    <img src="images/qishifu.jpg" alt="启师傅" class="chat-window-avatar">
+    <div class="chat-window-info">
+      <div class="chat-window-name">启师傅 AI 分身</div>
+      <div class="chat-window-status">在线</div>
+    </div>
+    <button class="chat-window-close" onclick="toggleChat()">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+  <iframe class="chat-window-body" id="chatIframe" src="about:blank" allow="microphone"></iframe>
+  <div class="chat-window-footer">
+    Powered by <svg style="width:14px;height:14px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 841.89 477.45"><defs><style>.smf1{fill:#ffb939}.smf2{fill:#b6a0ff}.smf3{fill:#180b00}</style></defs><path class="smf1" d="M346.63,437.6c85.07,34.2,190.98-61.84,315.22,22.73,77.2,52.56,179.69-14.19,180.04-224.3,.21-125.12-86.87-230.42-216.5-235.35-147.52-5.61-199.26,100.18-243.56,209.88-20.71,51.28-93.09,203.77-35.2,227.04Z"/><circle class="smf3" cx="628.33" cy="205.03" r="16.25"/><circle class="smf3" cx="493.72" cy="171.28" r="16.25"/><path class="smf3" d="M558.24,237.21c-13.07,0-28.81-4.66-41.32-22.41-1.14-1.62-.75-3.85,.86-4.99,1.61-1.14,3.85-.75,4.99,.86,22.56,32.01,56.35,15.22,57.78,14.49,1.75-.9,3.92-.21,4.82,1.55,.9,1.76,.22,3.91-1.54,4.82-.21,.11-11.31,5.68-25.6,5.68Z"/><g><path class="smf2" d="M384.02,438.67c-60.88,16.58-67.98-63.27-218.07,27.14C114.09,497.05,10.75,431.37,.52,258.33-7.44,123.85,77.31,13.47,200.26,1.15h0c122.95-12.33,225.06,76.14,248.86,205.61,21.95,119.46-19.67,219.54-65.1,231.91Z"/><circle class="smf3" cx="205.42" cy="210.55" r="18.84"/><circle class="smf3" cx="364.65" cy="179.54" r="18.84"/><path class="smf3" d="M288.55,251.32c-18.75,0-32.81-8.93-33.06-9.09-1.99-1.3-2.55-3.96-1.25-5.95,1.29-1.99,3.95-2.55,5.94-1.26,1.6,1.03,38.56,24.2,70.14-14.23,1.5-1.83,4.21-2.1,6.05-.59,1.83,1.51,2.1,4.22,.59,6.05-16.07,19.56-33.68,25.07-48.4,25.07Z"/></g></svg> <a href="https://second-me.cn" target="_blank">Second Me</a>
+  </div>
+</div>
+
 <div class="toast-container" id="toastContainer"></div>
 <script>
 function showToast(msg) {
@@ -952,6 +1057,31 @@ function sendToSecondMe() {
     url += '?q=' + encodeURIComponent(msg);
   }
   window.open(url, '_blank');
+}
+
+var chatOpen = false;
+var chatLoaded = false;
+function toggleChat() {
+  var win = document.getElementById('chatWindow');
+  var fab = document.getElementById('chatFab');
+  var badge = fab.querySelector('.chat-fab-badge');
+  chatOpen = !chatOpen;
+  if (chatOpen) {
+    win.style.display = 'flex';
+    requestAnimationFrame(function() {
+      requestAnimationFrame(function() { win.classList.add('open'); });
+    });
+    fab.classList.add('active');
+    if (badge) badge.style.display = 'none';
+    if (!chatLoaded) {
+      document.getElementById('chatIframe').src = 'https://second-me.cn/qishifu';
+      chatLoaded = true;
+    }
+  } else {
+    win.classList.remove('open');
+    fab.classList.remove('active');
+    setTimeout(function() { if (!chatOpen) win.style.display = 'none'; }, 300);
+  }
 }
 
 function setThemeIcons(isDark) {
