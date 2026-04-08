@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>小红书黑客松海报生成器</title>
+<style>
+  :root {
+    --bg: #f0f2f5;
+    --surface: #fff;
+    --surface2: #f7f8fa;
+    --text: #1a1d24;
+    --text2: #5a6270;
+    --text3: #8e95a0;
+    --border: #dde1e8;
+    --accent: #2d5a27;
+    --accent-light: #eaf5e8;
+    --primary: #4caf50;
+    --primary-dark: #2e7d32;
+    --radius: 12px;
+    --shadow: 0 1px 8px rgba(45,90,39,0.06);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+  }
+
+  .page-wrapper {
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+  }
+
+  .page { max-width: 1800px; width: 100%; }
+
+  .page-header {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .app {
+    display: flex;
+    gap: 48px;
+    width: 100%;
+    align-items: flex-start;
+  }
+
+  .preview-section {
+    flex-shrink: 0;
+    position: sticky;
+    top: 30px;
+  }
+
+  .preview-container {
+    width: 630px;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+  }
+
+  #posterCanvas {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .controls {
+    flex: 1;
+    min-width: 450px;
+    display: flex;
+    flex-direction: column;
+    gap: 21px;
+  }
+
+  h1 {
+    font-size: 36px;
+    font-weight: 900;
+    color: var(--accent);
+    margin-bottom: 6px;
+    letter-spacing: 1px;
+  }
+
+  .subtitle {
+    font-size: 21px;
+    color: var(--text2);
+  }
+
+  .control-group {
+    background: var(--surface);
+    border-radius: var(--radius);
+    padding: 21px 30px;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+  }
+
+  .control-group label {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    font-size: 21px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: var(--accent);
+  }
+
+  .label-icon {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+  }
+
+  .row-group {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+
+  .row-group label {
+    margin-bottom: 0;
+    white-space: nowrap;
+    min-width: 150px;
+    width: 150px;
+  }
+
+  .gender-options {
+    display: flex;
+    gap: 15px;
+    flex: 1;
+  }
+
+  .gender-btn {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--surface2);
+    color: var(--text2);
+    font-size: 24px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: center;
+  }
+
+  .gender-btn:hover {
+    border-color: var(--primary);
+    color: var(--primary-dark);
+    background: var(--accent-light);
+  }
+
+  .gender-btn.active {
+    border-color: var(--primary);
+    background: var(--accent-light);
+    color: var(--accent);
+    box-shadow: 0 0 0 1px var(--primary);
+  }
+
+  .upload-btn {
+    flex: 1;
+    padding: 12px 27px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--surface2);
+    color: var(--text2);
+    font-size: 21px;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+  }
+
+  .upload-btn:hover {
+    border-color: var(--primary);
+    background: var(--accent-light);
+    color: var(--accent);
+  }
+
+  .upload-btn.has-image {
+    border-color: var(--primary);
+    color: var(--accent);
+    background: var(--accent-light);
+  }
+
+  .upload-btn input[type="file"] {
+    display: none;
+  }
+
+  .upload-header {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+
+  .upload-header label {
+    margin-bottom: 0;
+    white-space: nowrap;
+    min-width: 150px;
+    width: 150px;
+  }
+
+  .reset-btn {
+    padding: 8px 21px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--surface2);
+    color: var(--text3);
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.2s;
+    align-self: flex-end;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .reset-btn:hover {
+    border-color: var(--primary);
+    color: var(--accent);
+    background: var(--accent-light);
+  }
+
+  .row-group-top {
+    align-items: flex-start;
+  }
+
+  .row-group-top label {
+    padding-top: 18px;
+    min-width: 150px;
+    width: 150px;
+  }
+
+  .declaration-wrap { flex: 1; }
+
+  .declaration-wrap textarea { height: 270px !important; min-height: 270px !important; }
+
+  .declaration-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 4px;
+  }
+
+  .text-input {
+    width: 100%;
+    padding: 15px 21px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--surface2);
+    color: var(--text);
+    font-size: 22px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  .text-input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 2px rgba(76,175,80,0.12);
+  }
+
+  .text-input::placeholder {
+    color: var(--text3);
+  }
+
+  textarea.text-input {
+    resize: vertical;
+    min-height: 120px;
+    font-family: inherit;
+    line-height: 1.6;
+  }
+
+  .char-count {
+    text-align: right;
+    font-size: 18px;
+    color: var(--text3);
+    margin-top: 6px;
+  }
+
+  .photo-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 18px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+  }
+
+  .slider-row {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .slider-row span {
+    font-size: 18px;
+    color: var(--text3);
+    min-width: 60px;
+  }
+
+  .slider-row input[type="range"] {
+    flex: 1;
+    accent-color: var(--primary);
+    height: 6px;
+  }
+
+  .btn-download {
+    width: 100%;
+    padding: 21px;
+    border: none;
+    border-radius: var(--radius);
+    background: var(--accent);
+    color: #fff;
+    font-size: 24px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+    letter-spacing: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    box-shadow: 0 6px 24px rgba(45,90,39,0.15);
+  }
+
+  .btn-download:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 24px rgba(45,90,39,0.2);
+    opacity: 0.9;
+  }
+
+  .btn-download:active {
+    transform: translateY(0);
+  }
+
+  .declaration-hint {
+    font-size: 18px;
+    color: var(--text3);
+    margin-top: 9px;
+    line-height: 1.5;
+  }
+
+  /* Processing overlay */
+  .processing-overlay {
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.65);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    border-radius: var(--radius);
+    z-index: 10;
+  }
+  .processing-overlay .spinner {
+    width: 54px; height: 54px;
+    border: 4px solid rgba(255,255,255,0.3);
+    border-top-color: #44FFBB;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    margin-bottom: 18px;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .processing-overlay .proc-text {
+    color: #fff; font-size: 21px; font-weight: 600;
+  }
+  .processing-overlay .proc-sub {
+    color: rgba(255,255,255,0.6); font-size: 18px; margin-top: 6px;
+  }
+
+  @media (max-width: 1200px) {
+    .app { flex-direction: column; align-items: center; }
+    .preview-section { position: static; width: 100%; max-width: 630px; }
+    .preview-container { width: 100%; }
+    .controls { width: 100%; min-width: 0; }
+    .row-group label, .upload-header label, .row-group-top label { min-width: 120px; width: 120px; }
+  }
+</style>
+</head>
+<body>
+<!-- Site Header -->
+<header style="max-width:1800px;margin:0 auto;padding:0 36px;border-bottom:1px solid #dde1e8;height:66px;display:flex;align-items:center;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;">
+  <a href="../" style="text-decoration:none;font-size:26px;font-weight:900;color:#5a3e1b;letter-spacing:1px;margin-right:12px;flex-shrink:0;">启师傅</a>
+  <nav style="display:flex;flex:1;height:100%;align-items:center;">
+    <a href="../" style="text-decoration:none;padding:0 30px;font-size:20px;font-weight:600;color:#7a6a50;height:100%;display:flex;align-items:center;">首页</a>
+    <a href="../projects" onclick="localStorage.setItem('qsf_tab','projects')" style="text-decoration:none;padding:0 30px;font-size:20px;font-weight:600;color:#5a3e1b;height:100%;display:flex;align-items:center;position:relative;">小项目<span style="position:absolute;bottom:0;left:0;right:0;height:2px;background:#d4a574;"></span></a>
+    <a href="../posts" onclick="localStorage.setItem('qsf_tab','articles')" style="text-decoration:none;padding:0 30px;font-size:20px;font-weight:600;color:#7a6a50;height:100%;display:flex;align-items:center;">文章</a>
+  </nav>
+</header>
+<!-- Breadcrumb -->
+<div style="max-width:1800px;margin:0 auto;padding:15px 36px;font-size:18px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#a89880;">
+  <a href="../" style="color:#7a6a50;text-decoration:none;">启师傅</a>
+  <svg style="margin:0 9px;vertical-align:middle;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
+  <a href="../projects" onclick="localStorage.setItem('qsf_tab','projects')" style="color:#7a6a50;text-decoration:none;">小项目</a>
+  <svg style="margin:0 9px;vertical-align:middle;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
+  <span style="color:#5a3e1b;">小红书黑客松海报生成器</span>
+</div>
+<div class="page-wrapper">
+<div class="page">
+  <div class="page-header">
+    <h1><svg class="label-icon" style="width:36px;height:36px;vertical-align:middle;margin-right:6px" viewBox="0 0 24 24" fill="none" stroke="#2d5a27" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>黑客松海报生成器</h1>
+    <p class="subtitle">小红书 · 黑客松巅峰赛</p>
+  </div>
+  <div class="app">
+    <div class="preview-section">
+      <div class="preview-container" style="position:relative;">
+        <canvas id="posterCanvas" width="1440" height="2400"></canvas>
+        <div id="processingOverlay" class="processing-overlay" style="display:none;">
+          <div class="spinner"></div>
+          <div class="proc-text">AI 抠图处理中...</div>
+          <div class="proc-sub" id="procProgress">服务器 AI 抠图中，请稍候...</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+
+    <div class="control-group row-group">
+      <label><svg class="label-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>称呼</label>
+      <div class="gender-options">
+        <button class="gender-btn active" data-gender="他" onclick="selectGender(this)">他</button>
+        <button class="gender-btn" data-gender="她" onclick="selectGender(this)">她</button>
+        <button class="gender-btn" data-gender="Ta" onclick="selectGender(this)">Ta</button>
+        <button class="gender-btn" data-gender="我" onclick="selectGender(this)">我</button>
+      </div>
+    </div>
+
+    <div class="control-group row-group">
+      <label><svg class="label-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>小红书 ID</label>
+      <input type="text" class="text-input" id="userId" value="启师傅AI客厅" oninput="render()">
+    </div>
+
+    <div class="control-group">
+      <div class="upload-header">
+        <label><svg class="label-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>上传照片</label>
+        <button class="upload-btn" id="uploadArea" onclick="document.getElementById('photoInput').click()">
+          <input type="file" id="photoInput" accept="image/*">
+          <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+          <span id="uploadPlaceholder">点击选择图片</span>
+          <span id="uploadFileName" style="display:none"></span>
+        </button>
+      </div>
+      <div class="row-group" style="margin-top:10px;">
+        <label><svg class="label-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>图片模式</label>
+        <div class="gender-options">
+          <button class="gender-btn active" data-mode="standard" onclick="selectMode(this)">标准模式</button>
+          <button class="gender-btn" data-mode="cutout" onclick="selectMode(this)">抠图模式</button>
+        </div>
+      </div>
+      <div class="photo-controls" id="photoControls" style="display:none">
+        <div class="slider-row">
+          <span>缩放</span>
+          <input type="range" id="photoScale" min="0.3" max="3" step="0.05" value="1">
+          <span id="scaleVal">100%</span>
+        </div>
+        <div class="slider-row">
+          <span>水平</span>
+          <input type="range" id="photoX" min="-500" max="500" step="5" value="0">
+          <span id="xVal">0</span>
+        </div>
+        <div class="slider-row">
+          <span>垂直</span>
+          <input type="range" id="photoY" min="-500" max="500" step="5" value="0">
+          <span id="yVal">0</span>
+        </div>
+        <button class="reset-btn" onclick="resetPhoto()"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>恢复默认</button>
+      </div>
+    </div>
+
+    <div class="control-group row-group row-group-top">
+      <label><svg class="label-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>你的宣言</label>
+      <div class="declaration-wrap">
+        <textarea class="text-input" id="declaration" placeholder="写下你的参赛宣言..." oninput="updateCharCount(); render()" maxlength="80">很多想法不是缺时间
+只是一直没开始
+【马上开始做】
+48小时够了</textarea>
+        <div class="declaration-footer">
+          <span class="declaration-hint">用【】包裹文字可高亮</span>
+          <span class="char-count"><span id="charCount">0</span>/80</span>
+        </div>
+      </div>
+    </div>
+
+    <button class="btn-download" onclick="downloadPoster()"><svg width="27" height="27" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>下载海报</button>
+  </div>
+  </div>
+</div>
+</div>
+
+<script>
+const CANVAS_W = 1440;
+const CANVAS_H = 2400;
+
+const canvas = document.getElementById('posterCanvas');
+const ctx = canvas.getContext('2d');
+
+// State
+let currentGender = '他';
+let currentMode = 'standard'; // 'standard' or 'cutout'
+let userPhoto = null;
+let cutoutPhoto = null; // Background-removed version
+let currentFile = null; // Keep reference to uploaded file for mode switching
+let blurredPhoto = null; // Gaussian blurred version as backdrop
+let photoScale = 1;
+let photoOffsetX = 0;
+let photoOffsetY = 0;
+let isProcessing = false;
+
+// Generate a heavily blurred version of the photo for backdrop
+function generateBlurredPhoto(img) {
+  const offscreen = document.createElement('canvas');
+  const frameW = FRAME_RIGHT - FRAME_LEFT;
+  const frameH = FRAME_BOTTOM - FRAME_TOP;
+  offscreen.width = frameW;
+  offscreen.height = frameH;
+  const offCtx = offscreen.getContext('2d');
+
+  // Draw image to cover the frame area
+  const imgRatio = img.width / img.height;
+  const frameRatio = frameW / frameH;
+  let dw, dh;
+  if (imgRatio > frameRatio) {
+    dh = frameH;
+    dw = dh * imgRatio;
+  } else {
+    dw = frameW;
+    dh = dw / imgRatio;
+  }
+  offCtx.filter = 'blur(30px)';
+  offCtx.drawImage(img, (frameW - dw) / 2, (frameH - dh) / 2, dw, dh);
+  // Draw again to intensify the blur
+  offCtx.drawImage(offscreen, 0, 0);
+
+  const blurred = new Image();
+  blurred.src = offscreen.toDataURL();
+  return blurred;
+}
+
+// Preload assets
+const assets = {};
+const assetList = [
+  { key: 'bg', src: 'bg.png?v=' + Date.now() },
+  { key: '他', src: 'he.png?v=' + Date.now() },
+  { key: '她', src: 'she.png?v=' + Date.now() },
+  { key: 'Ta', src: 'Ta.png?v=' + Date.now() },
+  { key: '我', src: 'me.png?v=' + Date.now() },
+];
+
+let loadedCount = 0;
+let fontLoaded = false;
+
+// Load custom font
+const customFont = new FontFace('FZCuSong', 'url(fzcusong.ttf)');
+customFont.load().then(function(font) {
+  document.fonts.add(font);
+  fontLoaded = true;
+  checkReady();
+}).catch(function(err) {
+  console.warn('Font load failed:', err);
+  fontLoaded = true;
+  checkReady();
+});
+
+assetList.forEach(function(item) {
+  const img = new Image();
+  img.onload = function() {
+    assets[item.key] = img;
+    loadedCount++;
+    checkReady();
+  };
+  img.src = item.src;
+});
+
+function checkReady() {
+  if (loadedCount === assetList.length && fontLoaded) {
+    render();
+  }
+}
+
+// White frame clipping region based on pixel analysis of bg.png
+// Shape: folder-tab style with angled top-left, large diagonal top-right,
+// and symmetric bottom corner cuts
+function getFramePath() {
+  return [
+    [174, 895],      // top-left (start of top edge)
+    [808, 895],      // top-right of narrow section
+    [1328, 1040],    // right edge after diagonal
+    [1328, 1445],    // bottom-right before cut
+    [1245, 1520],    // bottom-right corner
+    [182, 1520],     // bottom-left corner
+    [98, 1445],      // bottom-left before cut
+    [98, 970],       // left edge top
+  ];
+}
+
+const FRAME_LEFT = 98;
+const FRAME_RIGHT = 1328;
+const FRAME_TOP = 895;
+const FRAME_BOTTOM = 1520;
+
+function render() {
+  ctx.clearRect(0, 0, CANVAS_W, CANVAS_H);
+
+  // 1. Draw user photo FIRST (below bg layer)
+  const activePhoto = (currentMode === 'cutout' && cutoutPhoto) ? cutoutPhoto : userPhoto;
+  if (activePhoto) {
+    const frameCenterX = (FRAME_LEFT + FRAME_RIGHT) / 2;
+    const frameCenterY = (FRAME_TOP + FRAME_BOTTOM) / 2;
+    const frameW = FRAME_RIGHT - FRAME_LEFT;
+    const frameH = FRAME_BOTTOM - FRAME_TOP;
+
+    if (currentMode === 'cutout' && cutoutPhoto) {
+      // Cutout mode: fill frame with dark gradient, then draw cutout
+      ctx.save();
+      const grd = ctx.createLinearGradient(FRAME_LEFT, FRAME_TOP, FRAME_LEFT, FRAME_BOTTOM);
+      grd.addColorStop(0, '#1a2a1a');
+      grd.addColorStop(1, '#0d1a0d');
+      ctx.fillStyle = grd;
+      ctx.fillRect(FRAME_LEFT, FRAME_TOP, frameW, frameH);
+      ctx.restore();
+    } else if (userPhoto) {
+      // Standard mode: draw blurred backdrop
+      if (blurredPhoto && blurredPhoto.complete) {
+        ctx.drawImage(blurredPhoto, FRAME_LEFT, FRAME_TOP, frameW, frameH);
+      }
+    }
+
+    // Draw the photo (original or cutout)
+    const imgRatio = activePhoto.width / activePhoto.height;
+    const frameRatio = frameW / frameH;
+    let drawW, drawH;
+    if (imgRatio > frameRatio) {
+      drawH = frameH * photoScale;
+      drawW = drawH * imgRatio;
+    } else {
+      drawW = frameW * photoScale;
+      drawH = drawW / imgRatio;
+    }
+
+    const drawX = frameCenterX - drawW / 2 + photoOffsetX;
+    const drawY = frameCenterY - drawH / 2 + photoOffsetY;
+    ctx.drawImage(activePhoto, drawX, drawY, drawW, drawH);
+  }
+
+  // 2. Draw bg on top (transparent frame area reveals photo underneath)
+  if (assets.bg) {
+    ctx.drawImage(assets.bg, 0, 0, CANVAS_W, CANVAS_H);
+  }
+
+  // 4. Draw title image (gender-specific)
+  const titleImg = assets[currentGender];
+  if (titleImg) {
+    const titleW = 1300;
+    const titleH = titleW * (titleImg.height / titleImg.width);
+    const titleX = (CANVAS_W - titleW) / 2;
+    const titleY = 250;
+    ctx.drawImage(titleImg, titleX, titleY, titleW, titleH);
+  }
+
+  // 5. Draw @ID — PSD: position (1033,892)-(1243,942), color #44FFBB
+  const userId = document.getElementById('userId').value.trim();
+  if (userId) {
+    ctx.save();
+    ctx.font = '600 48px FZCuSong, "PingFang SC", sans-serif';
+    ctx.fillStyle = '#44FFBB';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText('@' + userId, 1138, 917);
+    ctx.restore();
+  }
+
+  // 6. Draw declaration text — PSD: area (248,1656)-(1177,2084)
+  const declaration = document.getElementById('declaration').value;
+  if (declaration) {
+    const lines = declaration.split('\n').filter(function(l) { return l.trim(); });
+    ctx.save();
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+
+    const fontSize = 76;
+    const lineHeight = 107;
+    const totalHeight = lines.length * lineHeight;
+    const areaTop = 1656;
+    const areaBottom = 2084;
+    const startY = areaTop + (areaBottom - areaTop - totalHeight) / 2 + lineHeight / 2;
+
+    // First pass: draw white outer glow (PSD: white glow, alpha ~109)
+    ctx.save();
+    ctx.shadowColor = 'rgba(255, 255, 255, 0.45)';
+    ctx.shadowBlur = 20;
+    ctx.shadowOffsetX = 0;
+    ctx.shadowOffsetY = 0;
+    lines.forEach(function(line, i) {
+      const trimmed = line.trim();
+      const y = startY + i * lineHeight;
+      const highlightMatch = trimmed.match(/^(.*)【(.+)】(.*)$/);
+      const text = highlightMatch ? highlightMatch[1] + highlightMatch[2] + (highlightMatch[3] || '') : trimmed;
+      ctx.font = '700 ' + fontSize + 'px FZCuSong, "PingFang SC", sans-serif';
+      ctx.fillStyle = 'rgba(255,255,255,0.01)';
+      ctx.fillText(text, CANVAS_W / 2, y);
+    });
+    ctx.restore();
+
+    // Second pass: draw actual text and highlights
+    lines.forEach(function(line, i) {
+      const trimmed = line.trim();
+      const y = startY + i * lineHeight;
+
+      // Check if line has【】markers for highlight
+      const highlightMatch = trimmed.match(/^(.*)【(.+)】(.*)$/);
+
+      if (highlightMatch) {
+        drawHighlightLine(ctx, highlightMatch, y, fontSize);
+      } else {
+        ctx.font = '700 ' + fontSize + 'px FZCuSong, "PingFang SC", sans-serif';
+        ctx.fillStyle = '#ffffff';
+        ctx.fillText(trimmed, CANVAS_W / 2, y);
+      }
+    });
+    ctx.restore();
+  }
+}
+
+// Draw a line with highlight styling matching PSD "high line" group
+// Highlight: semi-transparent green rectangle + vertical bar + circle indicator
+function drawHighlightLine(ctx, match, y, fontSize) {
+  const before = match[1];
+  const highlighted = match[2];
+  const after = match[3];
+  const fullText = before + highlighted + after;
+
+  ctx.font = '700 ' + fontSize + 'px FZCuSong, "PingFang SC", sans-serif';
+  ctx.fillStyle = '#ffffff';
+
+  const fullWidth = ctx.measureText(fullText).width;
+  const beforeWidth = ctx.measureText(before).width;
+  const highlightWidth = ctx.measureText(highlighted).width;
+
+  const textStartX = CANVAS_W / 2 - fullWidth / 2;
+  const hlX = textStartX + beforeWidth;
+  const hlPadX = 24;
+  const hlPadY = 8;
+  const hlRectTop = y - fontSize * 0.62 - hlPadY;
+  const hlRectHeight = fontSize * 1.04 + hlPadY * 2;
+  const hlRectLeft = hlX - hlPadX;
+  const hlRectWidth = highlightWidth + hlPadX * 2;
+
+  // Main highlight rectangle (semi-transparent)
+  ctx.fillStyle = 'rgba(68, 255, 187, 0.55)';
+  ctx.fillRect(hlRectLeft, hlRectTop, hlRectWidth, hlRectHeight);
+
+  // Vertical bar on right edge
+  const barWidth = 7;
+  ctx.fillStyle = 'rgba(68, 255, 187, 0.9)';
+  ctx.fillRect(hlRectLeft + hlRectWidth, hlRectTop, barWidth, hlRectHeight + 16);
+
+  // Circle indicator at top of the bar
+  const circleR = 16;
+  ctx.beginPath();
+  ctx.arc(hlRectLeft + hlRectWidth + barWidth / 2, hlRectTop - circleR + 2, circleR, 0, Math.PI * 2);
+  ctx.fill();
+
+  // Draw text parts
+  ctx.textAlign = 'left';
+
+  // Before text (white)
+  if (before) {
+    ctx.fillStyle = '#ffffff';
+    ctx.fillText(before, textStartX, y);
+  }
+
+  // Highlighted text (white on green)
+  ctx.fillStyle = '#ffffff';
+  ctx.fillText(highlighted, hlX, y);
+
+  // After text (white)
+  if (after) {
+    ctx.fillStyle = '#ffffff';
+    ctx.fillText(after, hlX + highlightWidth, y);
+  }
+
+  ctx.textAlign = 'center';
+}
+
+function selectMode(btn) {
+  document.querySelectorAll('[data-mode]').forEach(function(b) {
+    b.classList.remove('active');
+  });
+  btn.classList.add('active');
+  currentMode = btn.dataset.mode;
+
+  if (currentMode === 'cutout' && currentFile && !cutoutPhoto && !isProcessing) {
+    doRemoveBackground(currentFile);
+  } else {
+    render();
+  }
+}
+
+async function doRemoveBackground(file) {
+  if (isProcessing) return;
+  isProcessing = true;
+  var overlay = document.getElementById('processingOverlay');
+  var progressEl = document.getElementById('procProgress');
+  overlay.style.display = 'flex';
+  progressEl.textContent = '服务器 AI 抠图中，请稍候...';
+
+  try {
+    var formData = new FormData();
+    formData.append('file', file);
+
+    var resp = await fetch('/api/remove-bg', {
+      method: 'POST',
+      body: formData
+    });
+
+    if (!resp.ok) {
+      var errData = await resp.json().catch(function() { return {}; });
+      throw new Error(errData.error || 'Server error ' + resp.status);
+    }
+
+    var blob = await resp.blob();
+    var url = URL.createObjectURL(blob);
+    var img = new Image();
+    img.onload = function() {
+      cutoutPhoto = img;
+      isProcessing = false;
+      overlay.style.display = 'none';
+      render();
+    };
+    img.onerror = function() {
+      isProcessing = false;
+      overlay.style.display = 'none';
+      alert('抠图结果加载失败，请重试');
+    };
+    img.src = url;
+  } catch(err) {
+    console.error('Background removal failed:', err);
+    isProcessing = false;
+    overlay.style.display = 'none';
+    alert('抠图处理失败: ' + (err.message || '未知错误') + '\n请重试或切换到标准模式');
+  }
+}
+
+function selectGender(btn) {
+  document.querySelectorAll('.gender-btn').forEach(function(b) {
+    b.classList.remove('active');
+  });
+  btn.classList.add('active');
+  currentGender = btn.dataset.gender;
+  render();
+}
+
+// Photo upload
+const photoInput = document.getElementById('photoInput');
+const uploadArea = document.getElementById('uploadArea');
+
+photoInput.addEventListener('change', function(e) {
+  const file = e.target.files[0];
+  if (!file) return;
+  loadPhoto(file);
+});
+
+function loadPhoto(file) {
+  currentFile = file;
+  cutoutPhoto = null; // Reset cutout when new photo is uploaded
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    const img = new Image();
+    img.onload = function() {
+      userPhoto = img;
+      blurredPhoto = generateBlurredPhoto(img);
+      // Reset adjustments
+      photoScale = 1;
+      photoOffsetX = 0;
+      photoOffsetY = 0;
+      document.getElementById('photoScale').value = 1;
+      document.getElementById('photoX').value = 0;
+      document.getElementById('photoY').value = 0;
+      updateSliderLabels();
+
+      // Update button text with filename
+      document.getElementById('uploadPlaceholder').style.display = 'none';
+      document.getElementById('uploadFileName').style.display = 'inline';
+      document.getElementById('uploadFileName').textContent = file.name;
+      document.getElementById('uploadArea').classList.add('has-image');
+      document.getElementById('photoControls').style.display = 'flex';
+
+      render();
+
+      // Auto-process background removal if in cutout mode
+      if (currentMode === 'cutout') {
+        doRemoveBackground(file);
+      }
+    };
+    img.src = e.target.result;
+  };
+  reader.readAsDataURL(file);
+}
+
+// Sliders
+document.getElementById('photoScale').addEventListener('input', function() {
+  photoScale = parseFloat(this.value);
+  updateSliderLabels();
+  render();
+});
+
+document.getElementById('photoX').addEventListener('input', function() {
+  photoOffsetX = parseInt(this.value);
+  updateSliderLabels();
+  render();
+});
+
+document.getElementById('photoY').addEventListener('input', function() {
+  photoOffsetY = parseInt(this.value);
+  updateSliderLabels();
+  render();
+});
+
+function updateSliderLabels() {
+  document.getElementById('scaleVal').textContent = Math.round(photoScale * 100) + '%';
+  document.getElementById('xVal').textContent = photoOffsetX;
+  document.getElementById('yVal').textContent = photoOffsetY;
+}
+
+function resetPhoto() {
+  photoScale = 1;
+  photoOffsetX = 0;
+  photoOffsetY = 0;
+  document.getElementById('photoScale').value = 1;
+  document.getElementById('photoX').value = 0;
+  document.getElementById('photoY').value = 0;
+  updateSliderLabels();
+  render();
+}
+
+function updateCharCount() {
+  const text = document.getElementById('declaration').value;
+  document.getElementById('charCount').textContent = text.length;
+}
+
+function downloadPoster() {
+  const link = document.createElement('a');
+  link.download = '黑客松海报_' + currentGender + '.png';
+  link.href = canvas.toDataURL('image/png');
+  link.click();
+}
+
+// Init
+updateCharCount();
+updateSliderLabels();
+</script>
+</body>
+</html>

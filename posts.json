@@ -1,0 +1,291 @@
+[
+  {
+    "id": "2f3514ed548f",
+    "title": "启师傅AI客厅良渚Demo Day第9期全回顾",
+    "title_en": "Qishifu AI Lounge Liangzhu Demo Day #9 Full Recap",
+    "content": "<p>大家好，我是启师傅！良渚终于渐渐入秋，demo day也迎来了第9期。谢谢大家一直以来的支持！！</p>\n\n<p>这次活动由<strong>启师傅AI客厅×亚马逊云科技</strong>联合主办，我们把目光聚焦于\"AI时代的独立产品开发和增长\"，邀请了多位独立开发者和创业者分享了他们的宝贵经验和思考。</p>\n\n<p><img src=\"/uploads/img1.jpg\"></p>\n\n<h2>上半场 -- 主题分享</h2>\n\n<h3>《VibeCoding的6个月，我看见了未来的软件形态》</h3>\n<p><strong>嘉宾：赵纯想</strong><br>独立开发者、作家、创业者，「胃之书App」作者，极客公园IF2025年度开发者</p>\n\n<p><img src=\"/uploads/img3.jpg\"></p>\n\n<p>纯想分享了他对AI时代软件形态的深刻洞察：当前大模型产品大多处于低效交互现状——用户一句话，Agent忙活几分钟。他认为，这样的交互方式属于中间形态，而未来的生成类大模型将逐渐走向两极：要么成为静默型工具（如24小时录音助手），要么成为高交互密度的工具。而高密度交互的产品才可以拉开高手和新手的差距，将个人的意志表达放在里面。纯想接着现场演示了其正在开发的剧本创作SaaS，展示了如何通过高密度交互，将编剧、分镜、角色管理等环节深度融合AI助手。</p>\n\n<h3>《当App开始像短视频一样被消费，开发者该怎么办？》</h3>\n<p><strong>嘉宾：海玮</strong><br>独立开发者，「小红书独立开发者大赛·浪漫主义奖」得主，代表作「魂旅App」</p>\n\n<p><img src=\"/uploads/img4.jpg\"></p>\n\n<p>海玮从自身经历出发，分享了从一名产品经理到独立开发者的探索中获得的洞见。随着时代的改变，App推广逻辑也发生了根本性变化：从过去的应用商店推荐、网站流量、线下地推等人工分发方式，转向小红书、B站、抖音等算法驱动的UGC平台。同时，vibe coding的成熟也让一些非技术背景的人更容易将自己的想法落地成产品。他鼓励大家减少自我评审，如果有一个奇怪的idea，不妨先发一个小红书看看用户的反应。\"我们不是在做产品，而是在做'会被分享的故事'。\"</p>\n\n<h3>《从抖音到 TikTok：一款专注 App 的场景爆发与全球机会》</h3>\n<p><strong>嘉宾：Una&amp;小昊</strong><br>「专注飞机」FocusFlight 创始人，「小红书独立开发者大赛·最佳创意奖」得主</p>\n\n<p><img src=\"/uploads/img5.jpg\"></p>\n\n<p>Una和小昊也是demo day的返场嘉宾。产品灵感来自ADHD患者的\"超专注\"特性——一旦进入状态就能持续专注2~3小时，他们在过去的生活中发现，在乘坐飞机的时候常常更加容易专注，于是他们将这个想法做成了一个极具仪式感的专注类产品。他们详细分享了自己在各语言本地化中各外注重的细节，以及从市场角度介绍了从抖音到Tiktok短视频数据爆发的背后，专注场景 + 短视频传播 + 全球机会，如何组合出一条让独立产品突围的道路。</p>\n\n<h2>圆桌讨论</h2>\n\n<p><strong>圆桌讨论《AI时代的产品开发和增长》</strong><br>嘉宾：启师傅、赵纯想、海玮、Una、小昊</p>\n\n<p><img src=\"/uploads/img6.jpg\"></p>\n\n<p>这次demo day，我们增加了一个圆桌环节，邀请几位嘉宾坐在一起，首先围绕独立开发者的日常生活状态展开了讨论。海玮坦言独居开发需要与自我斗争，作息周期性地在早睡目标与深夜工作中摇摆。</p>\n\n<p>在产品决策方面，海玮坚持实用主义原则，先通过小红书验证idea再开发，关注支付转化率等核心指标。而纯想则更注重内心兴奋度，曾主动停更已经取得不错收益的\"胃之书App\"，只因个人更愿探索AI Agent的新写法。</p>\n\n<p>Una和小昊分享了情侣档开发的独特优势——及时的产品讨论与互补的技能组合。虽然团队无专业设计师，但通过AI辅助和开源工具，他们在动效细节上投入了大量精力，如撕机票票根时的弧度计算、舷窗的视觉表现等，这些细节成为用户自发传播的关键点。</p>\n\n<h2>产品与Demo分享</h2>\n\n<h3>《硅谷生态分享：从创业公司到大厂》</h3>\n<p><strong>嘉宾：花姐</strong><br>每日互动co-founder、华旦天使投资人</p>\n\n<p><img src=\"/uploads/img7.jpg\"></p>\n\n<p>花姐刚刚从硅谷回来，用四句话总结了最新观察：</p>\n<ol>\n<li>钱非常好拿 -- 有团队甚至在没有技术合伙人的情况下，仅凭一个AI相亲匹配的想法，就拿到了数百万美元融资。</li>\n<li>公司涨得很大 -- 去年还只有十几个人的小团队，一年后已经被 Meta 收购。</li>\n<li>公司也要\"996\" -- 创业文化推崇 hacker house、密集式的创业模式在硅谷蔚然成风。</li>\n<li>大学毕业生一样找不到工作 -- 美国CS专业毕业生的失业率甚至高于一些文科专业。</li>\n</ol>\n\n<h3>《Restacks：截图就是赛博摄影术》</h3>\n<p><strong>嘉宾：affe</strong><br>黑客马拉松一等奖得主，全职独立开发者</p>\n\n<p><img src=\"/uploads/img8.jpg\"></p>\n\n<p>affe分享了他从效率工具转向\"赛博摄影术\"的产品思考历程。他意识到，自己保存的很多截图并非为了实用，而是那些\"有点恶趣味或者有点有意思\"的瞬间。他希望Restacks能成为人们在赛博空间生活的痕迹和\"人生见证者\"。</p>\n\n<h3>《桌面机器人：让AI走进千家万户的物理世界》</h3>\n<p><strong>嘉宾：乔丹</strong><br>闪猫科技创始人兼CEO，前阿里云架构师</p>\n\n<p><img src=\"/uploads/img9.jpg\"></p>\n\n<p>乔丹开场就让自主研发的开源机器人\"闪猫侠\"现场与观众互动。他提出AI将颠覆的下一个行业是桌面机器人，因为这是高容错、好玩且低成本的场景。他详细阐述了\"闪猫侠\"的设计理念：像人一样具备大脑、行动能力、说话能力、多模态交互以及成长能力。目前已有近万名创客参与共创，衍生出各种个性化机器人形态。</p>\n\n<h3>《一个产品经理的独立开发之旅》</h3>\n<p><strong>嘉宾：David Chen</strong><br>良渚文化村村民，独立开发者、连续创业者</p>\n\n<p><img src=\"/uploads/img10.jpg\"></p>\n\n<p>David分享了他作为产品经理转型独立开发者的三段经历。最近他跨界开发游戏，仅用半个月就通过AI编程完成demo，实现零代码手写。他展示了良渚古城题材的游戏原型，玩家需要筑高台、挖壕沟对抗洪水。在增长方面，David强调流量决定收益，推荐通过ASO/SEO进行冷启动。</p>\n\n<h3>《元崽: 让健康像摆烂一样简单》</h3>\n<p><strong>嘉宾：张典</strong><br>AI产品经理，连续创业者</p>\n\n<p><img src=\"/uploads/img11.jpg\"></p>\n\n<p>张典观察到当下年轻人\"在上班和上镜之间选择上香\"的现象。基于这些洞察，她团队开发了\"元崽\"——一款基于Apple Watch的游戏化养生应用。用户输入生辰八字后，系统会根据五行属性匹配专属角色，通过完成手表监测的简单健康任务来收集能量、解锁剧情。</p>\n\n<p><img src=\"/uploads/img12.jpg\"></p>\n\n<p>特别感谢<strong>亚马逊云科技</strong>的联合主办！欢迎关注「<strong>启师傅AI客厅</strong>」公众号、订阅小宇宙播客，获取最新活动报名信息。我们下期demoday再见！</p>",
+    "content_en": "",
+    "summary": "AI时代的独立产品开发和增长：VibeCoding、App短视频化消费、专注场景全球机会、硅谷生态、赛博摄影术、桌面机器人等精彩分享。",
+    "summary_en": "Indie product development and growth in the AI era: VibeCoding, App consumption like short videos, focus scenarios and global opportunities, Silicon Valley ecosystem, and more.",
+    "cover_image": "/uploads/img1.jpg",
+    "tags": [
+      "Demo Day",
+      "AI",
+      "独立开发",
+      "线下活动"
+    ],
+    "status": "published",
+    "created_at": "2025-10-24T22:22:00",
+    "updated_at": "2025-10-24T22:22:00",
+    "keywords": [
+      "VibeCoding",
+      "独立开发者",
+      "Demo Day",
+      "AI创业",
+      "专注飞机",
+      "vibe coding",
+      "桌面机器人",
+      "赛博摄影",
+      "良渚",
+      "亚马逊云科技"
+    ],
+    "slug": "20260405-demoday-9-recap",
+    "original_url": "https://mp.weixin.qq.com/s/AG54Q6NdQY5vOJ6aINfnFg"
+  },
+  {
+    "id": "7dabe7a97e76",
+    "slug": "20260131-shenzhen-ai-lounge-recap",
+    "title": "AI时代，个体如何持续建造？(启师傅AI客厅深圳活动全纪录)",
+    "title_en": "How Do Individuals Keep Building in the AI Era? (Qishifu AI Lounge Shenzhen Recap)",
+    "content": "<p>2026年1月31日，超过100位独立开发者、创业者、设计师和产品经理齐聚深圳AfterShip活动空间，参加了「启师傅AI客厅」深圳站活动。本次活动以<strong>「AI时代，个体如何持续建造？」</strong>为主题，4场主题分享+2场圆桌讨论，干货满满。</p><p>\n\n</p><p><img src=\"/uploads/sz1.png\"></p><p>\n\n</p><h2>分享一：\"AI as Me\" —— 让AI成为你</h2><p>\n</p><p><strong>嘉宾：余一</strong>腾讯研究院高级研究员 / HowOneAI创始人</p><p>\n\n</p><p><img src=\"/uploads/sz3.jpg\"></p><p>\n\n</p><p>余一的整场PPT和演讲，95%由她的AI语音克隆（数字分身）完成。她分享了一套从4500+小时AI协作中提炼的方法论：109条自动运行规则、11个可调用技能，构成了一个\"AI as Me\"系统。</p><p>\n\n</p><p>核心洞见：不是\"用AI\"，而是让AI\"成为你\"。用1500字描述你的人格，构建\"复利工程\"——每完成一个任务就问：能不能规则化、自动化、技能化、模式化、工具化？</p><p>\n\n</p><p>三步法：(1) AI First——先让AI完全独立做；(2) 找到边界——从100%拉回来看人的价值在哪；(3) 压缩对齐——把你的标准喂给AI，让它按你的水平执行。现场观众给AI语音演讲打了<strong>70/100分</strong>。</p><p>\n\n</p><h2>分享二：Vibe Coding一周，我造了一个桌面Agent</h2><p>\n</p><p><strong>嘉宾：艾逗笔</strong>ShipAny.ai / WorkAny.ai，《这就是MCP》作者</p><p>\n\n</p><p><img src=\"/uploads/sz5.jpg\"></p><p>\n\n</p><p>艾逗笔用一周时间，100% AI编程（3个Claude Code窗口同时运行），造出了<strong>WorkAny</strong>——一个本地版Manus + 本地版Claude Coworker。他自己设计了架构，但全程没有读过也没有写过一行代码。</p><p>\n\n</p><p>四个心得：(1) 好的产品感觉和审美才是关键差异化因素；(2) 多年工作积累的技术广度是程序员最大的优势；(3) 放下偏见——AI能力已经飞跃；(4) 优秀的程序员不会被替代，就像电动车不能替代法拉利。</p><p>\n\n</p><h2>圆桌一：AI时代的创造与建造</h2><p>\n</p><p><strong>嘉宾：Ping、余一、艾逗笔、启师傅</strong></p><p>\n\n</p><p><img src=\"/uploads/sz7.jpg\"></p><p>\n\n</p><p>关于\"没有AI你会做什么\"：艾逗笔说还会在腾讯；余一说还会在腾讯但做不同的事；Ping认为AI不会改变你是谁，它加速你已经想做的事。</p><p>\n\n</p><p>关于绝不交给AI的事：艾逗笔说架构设计；余一说几乎没有，除了真实的社交关系；Ping说任何增强你个人世界体验的事。</p><p>\n\n</p><h2>分享三：AI加持的创业者</h2><p>\n</p><p><strong>嘉宾：自力</strong>6X Studio创始人，「锁屏启动」和「2Camera」作者</p><p>\n\n</p><p><br></p><p><br></p><p><img src=\"https://qishifu.ai/uploads/sz14.jpg\"></p><p>\n\n</p><p>自力最新的App <strong>2Camera</strong>，3周内完成开发和上线，80-90%代码由AI生成，而他的第一个Mac App花了6个月。</p><p>\n\n</p><p>核心问题：当代码变便宜了，什么变贵了？答案：<strong>想法</strong>、<strong>精力/专注</strong>和<strong>品味/审美</strong>。</p><p>\n\n</p><p>AI编程技巧：始终用SOTA模型并开启思考模式；利用模型互补性（Claude Code写代码，Codex来review）；让AI给自己的工作打分；问AI如何更好地提示它。</p><p>\n\n</p><p>关于AI焦虑：成为受益者（更强的模型=更强的产品），把新AI工具当游戏道具，多线下见人，投资健康。</p><p>\n\n</p><h2>分享四：在越来越AI的时代，选择做一个慢产品</h2><p>\n</p><p><strong>嘉宾：Una &amp; 小昊</strong>「专注飞机」FocusFlight创始人</p><p><br></p><p><strong>FocusFlight</strong>是一款专注应用——通过保持50分钟专注来\"飞\"往一个目的地。上线一年后获得了Apple编辑推荐（欧盟和韩国）。</p><p>\n\n</p><p>关键框架：\"自我关系型产品\"有极长的反馈周期、高失败率，价值来自<strong>陪伴而非效率</strong>。AI擅长帮用户更快地做事；FocusFlight帮用户<strong>度过一种状态</strong>。</p><p>\n\n</p><h2>圆桌二：从独立开发者到创业者</h2><p>\n</p><p><strong>嘉宾：自力、Una &amp; 小昊、启师傅</strong>\n\n</p><p>Una定义自己是独立开发者而非创业者——更轻、压力更小。自力在腾讯待了11年后离职追逐长长的创意清单。小昊离开是因为大公司流程太重。Una只是不想坐在办公桌前。</p><p>\n\n</p><p>工作节奏：Una和小昊经常凌晨6-7点睡，在咖啡馆工作约2小时。自力同时运行3-4个项目。自力和小昊在等AI编译时打王者荣耀，称Vibe Coding\"上瘾\"。</p><p>\n\n</p><p><img src=\"/uploads/sz20.jpg\"></p><p>\n\n</p><p>活动在AfterShip的阳台上合影结束。特别感谢<strong>AfterShip</strong>提供场地，感谢<strong>真格基金</strong>的持续支持！</p>",
+    "content_en": "",
+    "summary": "100+独立开发者齐聚深圳：AI as Me、Vibe Coding造桌面Agent、AI加持的创业者、做慢产品的哲学，4场主题分享+2场圆桌讨论全纪录。",
+    "summary_en": "100+ indie devs gathered in Shenzhen: AI as Me, Vibe Coding a desktop agent, AI-powered entrepreneurs, the philosophy of slow products — full recap.",
+    "cover_image": "/uploads/sz1.png",
+    "tags": [
+      "线下活动",
+      "AI",
+      "独立开发",
+      "Vibe Coding"
+    ],
+    "keywords": [
+      "AI as Me",
+      "Vibe Coding",
+      "独立开发者",
+      "深圳",
+      "FocusFlight",
+      "WorkAny",
+      "Claude Code",
+      "艾逗笔",
+      "余一",
+      "自力",
+      "AfterShip",
+      "真格基金"
+    ],
+    "status": "published",
+    "created_at": "2026-03-02T22:31:00",
+    "updated_at": "2026-03-02T22:31:00",
+    "original_url": "https://mp.weixin.qq.com/s/tkokDwp7hE4I-FxVNR7UYQ"
+  },
+  {
+    "id": "6297c4ee6be5",
+    "slug": "20250912-demoday-8-ai-hardware",
+    "title": "启师傅AI客厅良渚Demo Day第8期回顾：AI与智能硬件创新",
+    "title_en": "Qishifu AI Lounge Liangzhu Demo Day #8 Recap: AI & Smart Hardware Innovation",
+    "content": "<p><strong>大家好！我是启师傅！！</strong></p>\n\n<p>在大家的支持和陪伴下，启师傅AI客厅良渚<strong>demoday</strong>已经办了8期啦！感谢各位在炎炎夏日依然热情参与！！</p>\n\n<p><img src=\"/uploads/d8_1.jpg\"></p>\n\n<p>这一次我们新的启师傅AI客厅的场地首次开启使用！第8期，我们把目光聚焦在了AI硬件，主题为：<strong>AI与智能硬件创新</strong>，并有幸邀请到了8位嘉宾来分享他们探索、踩坑与突破。</p>\n\n<h2>主题分享</h2>\n\n<h3>1. 从陪伴机器人到治愈系AI潮玩：芙崽Fuzozo的情感化设计进化论</h3>\n<p><strong>嘉宾：潘雨楠</strong><br>珞博智能CTO，主导芙崽Fuzozo从技术驱动到情感化设计的转型。融合五行哲学与多模态交互，618潮玩品类TOP3，获上影基金、金沙江创投投资。</p>\n\n<p><img src=\"/uploads/d8_2.jpg\"></p>\n\n<p>雨楠分享了团队的探索之路：从想做桌面人形机器人到最终推出芙崽，他们反复思考了1年左右的时间。产品成功的关键在于对用户情绪的精准把握。芙崽被赋予了五种不同性格（金木水火土），既有反PUA的\"毒舌\"，也有佛系的\"躺平\"。\"我们要把它做成硬件，走到千家万户。\"</p>\n\n<h3>2. 从idea到千万销量：智能硬件的创意、营销与生存法则</h3>\n<p><strong>嘉宾：谢发炎</strong><br>咕咕机、喵喵机创始人，智能硬件领域深耕15年，全球累计销量超千万台。</p>\n\n<p><img src=\"/uploads/d8_3.jpg\"></p>\n\n<p>他总结了硬件创业的生存法则：选择不内卷的赛道，找到高频刚需但少人深耕的领域；营销必须借助风口；注重跨界合作；供应链上大部分部件要尽可能选择成熟标品。</p>\n\n<h2>产品分享</h2>\n\n<h3>3. 一个杭州硬件的出海众筹\"要饭\"指南</h3>\n<p><strong>嘉宾：钱力</strong><br>前特斯拉销售/运营经理，桌面机器人KT2在Kickstarter上成功众筹超过75万美金。</p>\n\n<p><img src=\"/uploads/d8_4.jpg\"></p>\n\n<p>他分享了非常规的产品定义方法：将产品每一个功能点打包成广告素材，在Facebook上投流测试点击率和用户评论，真金白银地测试市场反应。KT2砍掉了摄像头和许多传感器，成为一个没有眼睛、只有耳朵、通过动作交互的机器人。</p>\n\n<h3>4. 告别开不了口：Second Me 作为社交硬件神器</h3>\n<p><strong>嘉宾：陶芳波</strong><br>心识宇宙Mindverse创始人，良渚文化村村民。</p>\n\n<p><img src=\"/uploads/d8_5.jpg\"></p>\n\n<p>Second Me从软件走向硬件，展示了\"社交神器\"的可能性。通过便携式硬件，让用户的AI分身可以在现实场景中替他们\"代言\"，帮他们突破表达的障碍。</p>\n\n<h3>5. ALLTIME万物时：深耕小宠陪伴的10年</h3>\n<p><strong>嘉宾：万一Roy</strong><br>万物时创始人，奇绩23F。</p>\n\n<p><img src=\"/uploads/d8_6.jpg\"></p>\n\n<p>硬件产品\"万物岛\"是一个虚实共生的未来生物缸，缸内是真实的水藻和鱼，缸后的屏幕里则是AI数字水藻。\"工具类产品需要卡刚需的功能点，而陪伴类产品为的是综合体验付费，所以要抓情绪的高潮点。\"</p>\n\n<h3>6. 创造属于你的AI玩伴，像搭积木一样简单</h3>\n<p><strong>嘉宾：孙郑鑫</strong><br>连续创业者，良渚文化村村民。</p>\n\n<p><img src=\"/uploads/d8_7.jpg\"></p>\n\n<p>评估了盲盒、毛绒、3D打印等多个品类后选择积木，因为其单价极低、上手简单、可复用性强、容易上瘾。提出\"积木轻定制\"概念，希望能成为AI硬件的外壳载体。</p>\n\n<h3>7. 让AI有生命：从具身马桶看陪伴机器人的未来</h3>\n<p><strong>嘉宾：张宇诺（LEO）</strong><br>Skyris创始人，康奈尔ECE辍学，曾为NASA开发机器人。</p>\n\n<p><img src=\"/uploads/d8_8.jpg\"></p>\n\n<p>他提出5点思考：陪伴硬件不是为了解决问题而是为了与人类共处；关系的核心是主动；有灵魂和有生命不同，灵魂的核心是情绪驱动的行为系统；要给人类留白，不要过度拟人化；不要怕卖不出去，人类会喜欢任何主动与自己建立关系的灵魂。</p>\n\n<h3>8. AI硬件创新：从概念到量产</h3>\n<p><strong>嘉宾：Alex</strong><br>前消费品牌创业者，良渚文化村村民。</p>\n\n<p><img src=\"/uploads/d8_9.jpg\"></p>\n\n<p>在第4期demo day得知了vibe coding的存在，之后四个月里几乎跑通了硬件的全流程。他总结，硬件创业的难点不在于技术本身，而在于在有限的时间、资源和预算内，清晰地定义每个阶段要做到什么程度就该进入下一阶段。最重要的能力是全局观、沟通协调能力和决策能力。</p>\n\n<p><img src=\"/uploads/d8_10.jpg\"></p>",
+    "content_en": "",
+    "summary": "AI硬件专场：陪伴机器人芙崽、千万销量喵喵机、Kickstarter众筹75万美金桌面机器人、Second Me社交硬件、具身智能马桶等8位嘉宾精彩分享。",
+    "summary_en": "AI hardware special: companion robot Fuzozo, smart printer with 10M+ sales, Kickstarter robot KT2, Second Me social hardware, and more from 8 speakers.",
+    "cover_image": "/uploads/d8_1.jpg",
+    "tags": [
+      "Demo Day",
+      "AI硬件",
+      "独立开发",
+      "良渚"
+    ],
+    "keywords": [
+      "AI硬件",
+      "芙崽",
+      "喵喵机",
+      "Kickstarter",
+      "Second Me",
+      "万物岛",
+      "具身智能",
+      "vibe coding",
+      "良渚文化村",
+      "陪伴机器人"
+    ],
+    "status": "published",
+    "created_at": "2025-09-12T21:19:53",
+    "updated_at": "2025-09-12T21:19:53",
+    "original_url": "https://mp.weixin.qq.com/s/_mpQKpXkdHHFOEpqa5j71A"
+  },
+  {
+    "id": "96220b68b669",
+    "slug": "20260101-1st-anniversary",
+    "title": "启师傅AI客厅1周年啦！",
+    "title_en": "Qishifu AI Lounge Celebrates 1st Anniversary!",
+    "content": "<p>给「建造者」打造一个场是客厅的初心，所以这次主题是<strong>《从内容到产品：把建造当做方法》</strong>，嘉宾的分享都超精彩，和大家聊得超开心！</p>\n\n<p>从西元的一个提议，到陶博士小院的第一次活动，再到这次已经是客厅的第12次活动了，也是2025年很有意义的ending！</p>\n\n<p><img src=\"/uploads/ann_0.jpg\"></p>\n\n<p><img src=\"/uploads/ann_1.jpg\"></p>\n\n<p><img src=\"/uploads/ann_2.jpg\"></p>\n\n<p><img src=\"/uploads/ann_3.jpg\"></p>\n\n<p><img src=\"/uploads/ann_4.jpg\"></p>\n\n<p><img src=\"/uploads/ann_5.jpg\"></p>\n\n<p><img src=\"/uploads/ann_6.jpg\"></p>\n\n<p><img src=\"/uploads/ann_7.jpg\"></p>\n\n<p><img src=\"/uploads/ann_8.jpg\"></p>\n\n<p><img src=\"/uploads/ann_9.jpg\"></p>\n\n<p><img src=\"/uploads/ann_10.jpg\"></p>\n\n<p>感谢每一位来分享的良师益友，感谢每一位报名参与的小伙伴，感谢所有的工作人员！感谢每一位这一年给我帮助和鼓励的朋友和老师！</p>\n\n<p>祝大家2026年多建造、多见面！</p>",
+    "content_en": "",
+    "summary": "从内容到产品：把建造当做方法。从第一次活动到第12次，启师傅AI客厅1周年回顾，感谢每一位建造者！",
+    "summary_en": "From content to product: building as a method. Looking back on 12 events in one year — thank you to every builder!",
+    "cover_image": "/uploads/ann_0.jpg",
+    "tags": [
+      "周年",
+      "线下活动",
+      "良渚"
+    ],
+    "keywords": [
+      "1周年",
+      "启师傅AI客厅",
+      "建造者",
+      "良渚文化村",
+      "Demo Day",
+      "从内容到产品"
+    ],
+    "status": "published",
+    "created_at": "2026-01-01T20:43:00",
+    "updated_at": "2026-01-01T20:43:00",
+    "original_url": "https://mp.weixin.qq.com/s/2u9IM37e9nfoz3Vr3CShWA"
+  },
+  {
+    "id": "841ffcadc40c",
+    "slug": "20250810-demoday-7-go-wild",
+    "title": "启师傅AI客厅良渚Demo Day第7期全回顾：Go Wild，AI出海与无边界创新",
+    "title_en": "Qishifu AI Lounge Liangzhu Demo Day #7: Go Wild — AI Going Global & Borderless Innovation",
+    "content": "<p>大家好，我是启师傅！2025年07月05日，杭州39度！！超热的一天！接近<strong>300位</strong>朋友汇聚启师傅AI客厅，参加了第7期demoday的活动！感谢大家的支持！！！</p>\n\n<p>第7期demoday由<strong>启师傅AI客厅×即刻/小宇宙</strong>联合主办，也得到了<strong>大屋顶·良渚文化艺术中心</strong>的大力支持，我们把场地搬到了更加开阔的\"大屋顶\"。</p>\n\n<p><img src=\"/uploads/d7_1.png\"></p>\n\n<p>第7期demoday的活动主题是：<strong>Go Wild：AI出海与无边界创新</strong></p>\n\n<p>我们有幸邀请到10位优秀的AI和出海创业者作为嘉宾。感谢大家的支持！！！这次demoday也很开心能聚集到来自杭州、北京、上海、深圳等全国各地以及良渚文化村村民在内的近300位朋友来场。</p>\n\n<h3>即刻App良渚村民标识官宣发布</h3>\n\n<p><img src=\"/uploads/d7_2.jpg\"></p>\n\n<p>启师傅AI客厅/良渚demoday × 即刻App发布了\"良渚村民标识\"，获得认证后的即刻良渚村民名字后面，会有一只代表良渚的小鸟。</p>\n\n<p><img src=\"/uploads/d7_3.png\"></p>\n\n<h2>主题分享：AI出海的探索与实战</h2>\n\n<p><img src=\"/uploads/d7_4.jpg\"></p>\n\n<h3>即刻 / 小宇宙的 AI 实践和探索</h3>\n<p><strong>嘉宾：熊猫镇长</strong>（小宇宙App设计总监）、<strong>JC</strong>（Kuli Kuli项目负责人）</p>\n\n<p><img src=\"/uploads/d7_5.jpg\"></p>\n\n<p>熊猫镇长分享了播客平台的AI创新，包括AI总结和同传功能。JC介绍了即刻AI实验室的实践，强调\"早做收费\"的重要性，成功孵化了多款百万用户级别的AI产品。</p>\n\n<h3>软件出海创业第一课</h3>\n<p><strong>嘉宾：生姜 Iris</strong><br>AFFiNE联合创始人（融资1000万美金）、福布斯亚洲30U30、出海运营专家</p>\n\n<p><img src=\"/uploads/d7_6.jpg\"></p>\n\n<p>生姜Iris从汇率差、发展中国家市场潜力等角度，剖析了软件出海的机遇与挑战。她强调，全球化产品的核心是精准匹配用户需求，而非简单复制国内模式。</p>\n\n<h3>从数字游民到数字村民</h3>\n<p><strong>嘉宾：Allen</strong><br>Grow创始人，良渚文化村村民</p>\n\n<p><img src=\"/uploads/d7_7.jpg\"></p>\n\n<p>Allen分享了自己从全球数字游民到扎根良渚的创业历程。他开发的健康应用Grow基于Apple Watch数据，目前已覆盖170个国家，拥有400万全球用户，在App Store获得15万五星好评。</p>\n\n<h3>AI工具产品出海策略和避坑指南</h3>\n<p><strong>嘉宾：Sam 韩晟</strong><br>小影科技&amp;影伙引擎创始人，13年出海创业经验，产品累计20亿海外用户</p>\n\n<p><img src=\"/uploads/d7_8.jpg\"></p>\n\n<p>Sam从市场选择、技术适配、合规问题、商业模式多维度分享了AI工具产品的本地化策略。他说：\"合规不是选项，而是出海成功的必要条件。真正的全球化不是简单的复制粘贴，而是深入理解每个市场的独特性。\"</p>\n\n<h2>产品&amp;Demo分享</h2>\n\n<p><img src=\"/uploads/d7_9.jpg\"></p>\n\n<h3>fotox.ai：AI商业化的一些思考和实践</h3>\n<p><strong>嘉宾：唐晗</strong>，fotox.ai联合创始人</p>\n\n<p><img src=\"/uploads/d7_10.jpg\"></p>\n\n<p>fotox.ai独创的图层式AI生成技术将产品主体与背景分离，确保主体不变，仅优化背景和光影效果。让普通照片\"一键变商用\"。</p>\n\n<h3>Chat Memo：自动保存AI对话，构建AI时代最重要的个人资产</h3>\n<p><strong>嘉宾：一泽 Eze</strong>，知名提示词工程师</p>\n\n<p><img src=\"/uploads/d7_11.jpg\"></p>\n\n<p>Chat Memo通过无感同步技术，自动保存所有AI对话记录，支持关键词搜索。上线一周用户破千，目标是成为AI时代的\"记忆保险箱\"。</p>\n\n<h3>知乎直答：你的AI知识引擎</h3>\n<p><strong>嘉宾：马奎（Kevin）</strong>，知乎直答业务负责人</p>\n\n<p><img src=\"/uploads/d7_12.jpg\"></p>\n\n<p>马奎展示了知乎直答如何通过\"溯源到人\"解决AI幻觉问题，支持@知识库和@真人答主功能。AI搜索的未来不是替代人类，而是通过\"人机协作\"放大专业个体的价值。</p>\n\n<h3>Dreamoo梦境社交</h3>\n<p><strong>嘉宾：潘志东（阿东）</strong>，Dreamoo联合创始人&amp;CMO</p>\n\n<p><img src=\"/uploads/d7_13.jpg\"></p>\n\n<p>Dreamoo通过记录、解读梦境构建社交场景。用户睡醒后记录梦境，AI生成视觉图像并分析心理状态。小红书上梦境UGC内容播放量超1000万。</p>\n\n<h3>Second Me：创造你的AI身份</h3>\n<p><strong>嘉宾：陶芳波</strong>，心识宇宙Mindverse创始人，良渚文化村村民</p>\n\n<p><img src=\"/uploads/d7_14.jpg\"></p>\n\n<p>Second Me让用户通过喂养数据训练专属AI分身，可实现分身代你表达、与其他AI辩论、基于思维模式匹配志同道合者。目标是让每个人拥有\"人的接口\"，在AI时代保留自我独特性。</p>\n\n<h2>Demo Day展位项目</h2>\n\n<p><img src=\"/uploads/d7_15.jpg\"></p>\n\n<p>这期demo day我们开设了展位，邀请之前在demo day展示过的项目以及良渚文化村有趣的创业项目参展：</p>\n\n<ul>\n<li><strong>Fatetell</strong> -- 结合东方命理与AI技术的命运解读产品</li>\n<li><strong>Bonjour!</strong> -- NFC实体卡+全球网页+微信小程序三合一数字名片</li>\n<li><strong>Print Verse.ai</strong> -- 3D打印专属的一站式AI 3D创作工具</li>\n<li><strong>Me.bot</strong> -- 由每个人和自己的AI分身组成的社交网络</li>\n<li><strong>PopTranslate</strong> -- 一键选中即可弹窗翻译的AI助手</li>\n<li><strong>玩佳砖块</strong> -- AI与积木结合，探索新的AI造物空间</li>\n<li><strong>村猫图鉴</strong> -- 良渚本地公益小程序，流浪猫保护与领养</li>\n<li><strong>Chat Memo</strong> -- AI时代的\"记忆保险箱\"</li>\n<li><strong>小时流</strong> -- 记录和规划时间的APP</li>\n</ul>\n\n<p><img src=\"/uploads/d7_16.jpg\"></p>\n\n<p><img src=\"/uploads/d7_17.jpg\"></p>\n\n<p>特别感谢<strong>即刻App/小宇宙</strong>的联合主办，以及<strong>大屋顶·良渚文化艺术中心</strong>的场地支持。期待下期再见！</p>",
+    "content_en": "",
+    "summary": "近300人齐聚良渚大屋顶！AI出海实战分享：即刻/小宇宙AI实践、软件出海第一课、400万用户Grow、20亿用户出海避坑指南，以及fotox.ai、Chat Memo、知乎直答、Dreamoo、Second Me等产品Demo。",
+    "summary_en": "~300 attendees at Liangzhu! AI going global: Jike/Xiaoyuzhou AI practice, software overseas 101, Grow with 4M users, plus demos from fotox.ai, Chat Memo, Zhihu Zhida, Dreamoo, and Second Me.",
+    "cover_image": "/uploads/d7_1.png",
+    "tags": [
+      "Demo Day",
+      "AI出海",
+      "独立开发",
+      "良渚"
+    ],
+    "keywords": [
+      "AI出海",
+      "即刻",
+      "小宇宙",
+      "AFFiNE",
+      "Grow",
+      "fotox.ai",
+      "Chat Memo",
+      "知乎直答",
+      "Dreamoo",
+      "Second Me",
+      "良渚文化村",
+      "大屋顶"
+    ],
+    "status": "published",
+    "created_at": "2025-08-10T14:03:16",
+    "updated_at": "2025-08-10T14:03:16",
+    "original_url": "https://mp.weixin.qq.com/s/H92ZQKLwmlZaQUs-Q8NBLw"
+  },
+  {
+    "id": "2ef63e55cac7",
+    "slug": "20250606-demoday-6-silicon-valley-to-liangzhu",
+    "title": "启师傅AI客厅良渚Demo Day第6期：从硅谷到良渚",
+    "title_en": "Qishifu AI Lounge Demo Day #6: From Silicon Valley to Liangzhu",
+    "content": "<p>大家好，我是启师傅！第6期Demo Day来啦！这次是<strong>启师傅AI客厅 × 小红书技术</strong>联合举办的特别场，主题是<strong>《从硅谷到良渚：小红书 &amp; Google I/O 灵感接力》</strong>，约100位AI创造者、产品人、开发者和投资人参加了活动。</p>\n\n<p><img src=\"/uploads/d6_1.jpg\"></p>\n\n<h2>主题分享</h2>\n\n<h3>独立开发者的不踩坑心法</h3>\n<p><strong>嘉宾：江宇</strong>，犬岛App开发者</p>\n\n<p><img src=\"/uploads/d6_2.png\"></p>\n\n<p>江宇从10+年社交创业经验出发，从校园FaceMatch到亿级规模图片小程序，分享了如何平衡追热点与做热爱的事、尊重政策与IP、尽早验证商业模式、以及用代码+内容杠杆来放大个人影响力。</p>\n\n<p><img src=\"/uploads/d6_3.png\"></p>\n\n<h3>2025年AI孤独感产品的风向与思考</h3>\n<p><strong>嘉宾：盒子</strong>，林间聊愈室联合创始人</p>\n\n<p><img src=\"/uploads/d6_4.png\"></p>\n\n<p>盒子分享了从内容转型到AI疗愈产品的经历，用动物治疗师和\"灵魂画布\"降低表达门槛。她强调品牌理念/审美/价值观比模型能力更能差异化，推荐用小红书的真实叙事获取早期忠实用户。</p>\n\n<p><img src=\"/uploads/d6_5.png\"></p>\n\n<h3>Fatetell：AI命理平台</h3>\n<p><strong>嘉宾：西元Levy</strong>，Fatetell创始人</p>\n\n<p><img src=\"/uploads/d6_6.png\"></p>\n\n<p>西元展示了Fatetell如何用八字和易经算法生成2万字+的\"命运之书\"和年度运势报告，配合Agent问答、六十四卦占卜和每日能量签。</p>\n\n<h2>产品Demo</h2>\n\n<h3>神灯AR：让桌游变简单</h3>\n<p><strong>嘉宾：涛哥Steve</strong>，神灯AR开发者</p>\n\n<p><img src=\"/uploads/d6_7.png\"></p>\n\n<p>神灯AR是一款桌面智能投影设备，用光+AI识别卡牌和玩家位置，自动讲解规则、旁白、计分，甚至充当AI玩家。抖音演示视频播放量近200万。</p>\n\n<p><img src=\"/uploads/d6_8.png\"></p>\n\n<h3>Zeabur：Vibe Coding时代的云部署</h3>\n<p><strong>嘉宾：林沅霖</strong>，Zeabur创始人</p>\n\n<p><img src=\"/uploads/d6_9.png\"></p>\n\n<p>林沅霖预览了Zeabur的新功能——开发者只需一句话描述需求，AI自动解析代码、购买云资源并部署，让部署像发朋友圈一样简单。</p>\n\n<h3>Bside：为05后搭建OC乐园</h3>\n<p><strong>嘉宾：乔海鑫Patrick</strong>，Bside创始人</p>\n\n<p><img src=\"/uploads/d6_10.png\"></p>\n\n<p>Bside是一个AI原生的OC（Original Character）创作平台，降低虚拟陪伴生态的创作成本和想象力门槛，支持角色创建、养成、社交和内容分发。</p>\n\n<p><img src=\"/uploads/d6_11.png\"></p>\n\n<p><img src=\"/uploads/d6_12.png\"></p>\n\n<p>特别感谢<strong>小红书技术</strong>的支持！期待第7期Demo Day再见！</p>",
+    "content_en": "",
+    "summary": "小红书技术联合特别场！独立开发者不踩坑心法、AI孤独感产品、Fatetell AI命理、神灯AR桌游、Zeabur云部署、Bside OC乐园，6位嘉宾精彩分享。",
+    "summary_en": "Special edition with Xiaohongshu Tech! Indie dev pitfall-free tips, AI loneliness products, Fatetell AI fortune, AR board games, Zeabur cloud deploy, Bside OC playground.",
+    "cover_image": "/uploads/d6_1.jpg",
+    "tags": [
+      "Demo Day",
+      "AI",
+      "独立开发",
+      "小红书"
+    ],
+    "keywords": [
+      "小红书技术",
+      "犬岛",
+      "林间聊愈室",
+      "Fatetell",
+      "神灯AR",
+      "Zeabur",
+      "Bside",
+      "良渚",
+      "Google I/O",
+      "vibe coding"
+    ],
+    "status": "published",
+    "created_at": "2025-06-06T19:20:19",
+    "updated_at": "2025-06-06T19:20:19",
+    "original_url": "https://mp.weixin.qq.com/s/jVAKutXdiDSKW1_hRFxxnQ"
+  },
+  {
+    "id": "214e2ffba2ee",
+    "slug": "20250530-demoday-5-recap",
+    "title": "启师傅AI客厅良渚Demo Day第5期回顾",
+    "title_en": "Qishifu AI Lounge Liangzhu Demo Day #5 Recap",
+    "content": "<p>5月10日，<strong>启师傅AI客厅</strong>举办了第5期良渚Demo Day，来自全国各地的AI创作者、产品人、开发者、投资人聚集一起碰撞灵感。本期Demo Day邀请到了9位嘉宾分享各自的心得和产品。</p>\n\n<p><img src=\"/uploads/d5_1.jpg\"></p>\n\n<h2>嘉宾分享环节</h2>\n\n<h3>分享1：YouMind 产品思考</h3>\n<p><strong>嘉宾：玉伯</strong><br>语雀创始人，前飞书产品副总裁，现YouMind创始人</p>\n\n<p><img src=\"/uploads/d5_2.jpg\"></p>\n\n<p>玉伯的分享围绕\"创业前必须回答的三个问题\"展开：愿不愿（是否拥有持续的热情和同路人）、值不值（解决的问题是否足够重要）、能不能（团队能力是否匹配愿景）。他提出：\"产品的竞争，归根结底是注意力的竞争，而'注意力'的关键，不在用户手中，而在用户内心是否有'牵引力'。\"玉伯正在打造YouMind——一个\"沉浸式创作环境\"，帮助创作者抵御外界干扰。</p>\n\n<h3>分享2：从需求到成本：AI落地产品的务实之路</h3>\n<p><strong>嘉宾：少楠</strong><br>flomo、小报童联合创始人</p>\n\n<p><img src=\"/uploads/d5_3.jpg\"></p>\n\n<p>少楠犀利地指出：用户购买的不是产品本身，而是\"使用产品之后变得更好的自己\"。他分享了产品哲学：功能不等于价值，动机才是驱动；产品经理的修行是理解人性；要敢于直面真实用户。\"我们总以为自己是在做效率工具，用户却是用它在找回某种生活秩序。\"</p>\n\n<h3>分享3：个人开发者怎么\"捡\"钱</h3>\n<p><strong>嘉宾：赵君</strong><br>SimilarTube &amp; Nanolnfluencer开发者</p>\n\n<p><img src=\"/uploads/d5_4.jpg\"></p>\n\n<p>赵君以月入5000美元的SimilarTube为例，强调\"PMF不是精心策划出来的，而是'脚踩西瓜皮滑出来的'\"。个人开发者生存三法则：多生几个小孩（降低执念，提高命中率）；选择比努力重要；做有正反馈的事。\"哪怕只靠100个付费用户，也能养活一个开发者。\"</p>\n\n<h2>产品Demo环节</h2>\n\n<h3>Seede.ai：人人都能用的AI设计工具</h3>\n<p><strong>嘉宾：Longyi</strong>，Seede.ai创始人&amp;CEO</p>\n\n<p><img src=\"/uploads/d5_5.jpg\"></p>\n\n<p>Seede.ai通过内置AI布局引擎，让用户只需提供文案素材和基本意图，就能自动生成图文混排页面。核心理念是\"让设计成为结果，而不是过程\"。</p>\n\n<h3>AIRI：外网爆火的AI主播</h3>\n<p><strong>嘉宾：奶扣Neko</strong>，全栈开发者，连续创业者</p>\n\n<p><img src=\"/uploads/d5_6.jpg\"></p>\n\n<p>AIRI是一套可以24小时运转的虚拟AI主播系统，涵盖语音驱动、表情同步、动态渲染等模块。AI在这里不仅是工具，更是一种\"自演化\"的创作伙伴。</p>\n\n<h3>AI在交易中的实际运用</h3>\n<p><strong>嘉宾：王凯</strong>，AI连续创业者</p>\n\n<p><img src=\"/uploads/d5_7.jpg\"></p>\n\n<p>王凯从AGI视角重新理解人与世界的关系，展示了AI交易倒计时产品——AI不再是即时决策的助手，而是帮助用户建立长期视角、缓解焦虑、洞察趋势的工具。</p>\n\n<h3>Monspeak：沉浸式语言学习</h3>\n<p><strong>嘉宾：Suki &amp; 志鹏hustlzp</strong></p>\n\n<p><img src=\"/uploads/d5_8.jpg\"></p>\n\n<p>Monspeak主打\"口语练习场景\"，用户与AI模拟真实场景对话，通过卡牌与任务系统驱动学习节奏。以练为核心，不以讲为主，真正解决\"说出口\"的障碍。</p>\n\n<h3>PopTranslate：macOS AI原生翻译工具</h3>\n\n<p><img src=\"/uploads/d5_9.jpg\"></p>\n\n<p>为macOS打造的AI原生翻译工具，无需切换窗口，一键选中即可弹窗翻译。</p>\n\n<p><img src=\"/uploads/d5_10.jpg\"></p>\n\n<p>感谢所有嘉宾和参与者的支持！期待第6期Demo Day再见！</p>",
+    "content_en": "",
+    "summary": "玉伯(YouMind)、少楠(flomo)、赵君(SimilarTube)三位大咖主题分享，Seede.ai、AIRI AI主播、Monspeak、PopTranslate等产品Demo，9位嘉宾精彩回顾。",
+    "summary_en": "Keynotes from Yubo (YouMind), Shaonan (flomo), Zhao Jun (SimilarTube), plus demos of Seede.ai, AIRI, Monspeak, PopTranslate and more.",
+    "cover_image": "/uploads/d5_1.jpg",
+    "tags": [
+      "Demo Day",
+      "AI",
+      "独立开发",
+      "良渚"
+    ],
+    "keywords": [
+      "玉伯",
+      "YouMind",
+      "少楠",
+      "flomo",
+      "SimilarTube",
+      "Seede.ai",
+      "AIRI",
+      "Monspeak",
+      "PopTranslate",
+      "良渚文化村"
+    ],
+    "original_url": "https://mp.weixin.qq.com/s/jVAKutXdiDSKW1_hRFxxnQ",
+    "status": "published",
+    "created_at": "2025-05-30T23:25:56",
+    "updated_at": "2025-05-30T23:25:56"
+  },
+  {
+    "id": "d64fc02df1e2",
+    "slug": "20251219-demoday-11-apple-ecosystem",
+    "title": "启师傅AI客厅Demo Day第11期：打造Apple全球生态下的卓越App",
+    "title_en": "Qishifu AI Lounge Demo Day #11: Building Excellent Apps in Apple Global Ecosystem",
+    "content": "<p><strong>启师傅AI客厅demoday第11期</strong>——特别活动<strong>《打造 Apple 全球生态下的卓越 App》</strong>，感谢Apple老师们的支持，感谢开发者前辈朋友、村民朋友的帮助！</p>\n\n<p><img src=\"/uploads/d11_1.jpg\"></p>\n<p><img src=\"/uploads/d11_2.jpg\"></p>\n<p><img src=\"/uploads/d11_3.jpg\"></p>\n<p><img src=\"/uploads/d11_4.jpg\"></p>\n<p><img src=\"/uploads/d11_5.jpg\"></p>\n<p><img src=\"/uploads/d11_6.jpg\"></p>\n<p><img src=\"/uploads/d11_7.jpg\"></p>\n<p><img src=\"/uploads/d11_8.jpg\"></p>\n<p><img src=\"/uploads/d11_9.jpg\"></p>\n<p><img src=\"/uploads/d11_10.jpg\"></p>\n\n<p>期待下期再见！</p>",
+    "content_en": "",
+    "summary": "特别活动！Apple官方支持，聚焦打造Apple全球生态下的卓越App，感谢Apple老师们的分享和开发者朋友们的参与。",
+    "summary_en": "",
+    "cover_image": "/uploads/d11_1.jpg",
+    "tags": [
+      "Demo Day",
+      "Apple",
+      "独立开发",
+      "良渚"
+    ],
+    "keywords": [
+      "Apple",
+      "App Store",
+      "独立开发者",
+      "良渚文化村",
+      "iOS开发"
+    ],
+    "original_url": "https://mp.weixin.qq.com/s/2UuU4f4sS03AUuD1JFtxFA",
+    "status": "published",
+    "created_at": "2025-12-19T23:49:00",
+    "updated_at": "2025-12-19T23:49:00"
+  },
+  {
+    "id": "56569ce2a134",
+    "slug": "20251027-demoday-10-ai-applications",
+    "title": "启师傅AI客厅良渚Demo Day第10期：AI应用落地",
+    "title_en": "Qishifu AI Lounge Demo Day #10: AI Applications in Practice",
+    "content": "<p>大家好，我是启师傅！启师傅AI客厅良渚Demo Day第10期啦！</p>\n\n<p>本期主题：<strong>AI应用落地：协作、工具与场景实践</strong></p>\n\n<p>我们邀请到来自AI协作、产品生态、智能体网络、阅读工具等领域的创造者们，带来他们正在进行的真实探索与作品故事。</p>\n\n<p><img src=\"/uploads/d10_1.jpg\"></p>\n\n<h2>嘉宾分享</h2>\n\n<h3>分享1：探索AI-Native协作工作流程</h3>\n<p><strong>嘉宾：吴敏</strong>，pardx ai创始人，前36kr联合创始人</p>\n\n<h3>分享2：AI时代的\"小程序+\"级红利：MCP变革AI时代的生产关系</h3>\n<p><strong>嘉宾：鲁泽良</strong>，「群接龙」合伙人/产品负责人，「接力GO」创始人</p>\n\n<h3>分享3：开放智能体网络：打破智能孤岛</h3>\n<p><strong>嘉宾：常高伟（长山）</strong>，ANP开源社区发起人，杭州向量共识创始人</p>\n\n<h3>分享4：半年60场活动，万人体验，yee's AI调香运营心得</h3>\n<p><strong>嘉宾：yee</strong>，yee's AI调香发起人，通往AGI之路核心共建者</p>\n\n<p><img src=\"/uploads/d10_2.jpg\"></p>\n\n<h3>分享5：refore.ai：让更多人可以做设计</h3>\n<p><strong>嘉宾：施德来</strong>，连续创业者，前端技术负责人、产品总监</p>\n\n<h3>分享6：ADHD看书慢？来试试字由阅读</h3>\n<p><strong>嘉宾：Unity</strong>，「字由阅读」创始人，专为阅读障碍者开发适应性工具</p>\n\n<h3>分享7：逻辑科技logeek.ai -- 基于多智能体架构的文旅产业数字员工矩阵</h3>\n<p><strong>嘉宾：高佳辉</strong>，逻辑科技创始人，连续创业者</p>\n\n<h3>分享8：角端阅读器：原生多极全球化时代的应用</h3>\n<p><strong>嘉宾：安康（pw0）</strong>，角端阅读器创始人&amp;CEO</p>\n\n<p><img src=\"/uploads/d10_3.jpg\"></p>\n\n<p><img src=\"/uploads/d10_4.jpg\"></p>\n\n<p>期待下期Demo Day再见！</p>",
+    "content_en": "",
+    "summary": "AI应用落地专场：AI-Native协作、MCP变革生产关系、开放智能体网络、AI调香、refore.ai设计工具、字由阅读、多智能体文旅、角端阅读器，8位嘉宾分享。",
+    "summary_en": "",
+    "cover_image": "/uploads/d10_1.jpg",
+    "tags": [
+      "Demo Day",
+      "AI",
+      "独立开发",
+      "良渚"
+    ],
+    "keywords": [
+      "MCP",
+      "AI协作",
+      "智能体网络",
+      "AI调香",
+      "refore.ai",
+      "字由阅读",
+      "ADHD",
+      "良渚文化村"
+    ],
+    "original_url": "https://mp.weixin.qq.com/s/bb6CjZNW3TYLRj2ofPJ2IA",
+    "status": "published",
+    "created_at": "2025-10-27T14:55:00",
+    "updated_at": "2025-10-27T14:55:00"
+  }
+]
